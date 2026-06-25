@@ -134,6 +134,9 @@
             <li><a href="#trabalho">Trabalho Extra: Frobenius</a></li>
         </ul>
         
+        <button class="theme-toggle-btn" onclick="toggleSolutions()" style="margin-bottom: 0.5rem; background-color: var(--accent); color: #fff;">
+            <span id="solution-btn-text">Esconder Resoluções</span>
+        </button>
         <button class="theme-toggle-btn" onclick="toggleTheme()">
             <span id="theme-btn-text">Modo Escuro</span>
         </button>
@@ -394,6 +397,18 @@
     </div>
 
     <script>
+        function toggleSolutions() {
+            const elements = document.querySelectorAll('.exercise-card .solution-section, .exercise-card .info-box.metodo');
+            const btnText = document.getElementById("solution-btn-text");
+            const isHidden = btnText.innerText === "Mostrar Resoluções";
+            
+            elements.forEach(el => {
+                el.style.display = isHidden ? "block" : "none";
+            });
+            
+            btnText.innerText = isHidden ? "Esconder Resoluções" : "Mostrar Resoluções";
+        }
+
         function toggleTheme() {
             const currentTheme = document.documentElement.getAttribute("data-theme");
             const newTheme = currentTheme === "dark" ? "light" : "dark";
