@@ -116,13 +116,22 @@
             section:first-of-type { page-break-before: avoid; }
             h2.section-title { color: black !important; border-bottom: 2px solid black !important; }
         }
+        .menu-open-btn { position: fixed; top: 1rem; left: 1rem; z-index: 90; background-color: var(--primary); color: white; border: none; padding: 0.5rem 1rem; border-radius: 0.5rem; cursor: pointer; font-weight: 600; box-shadow: var(--shadow); }
+        .sidebar { transition: transform 0.3s ease; }
+        .sidebar.collapsed { transform: translateX(-100%); }
+        .content-area { transition: margin-left 0.3s ease, width 0.3s ease; }
+        .content-area.expanded { margin-left: 0; width: 100%; max-width: 100%; }
     </style>
 </head>
 <body>
+    <button class="menu-open-btn" onclick="toggleSidebar()">☰ Menu</button>
     <div class="sidebar">
-        <div class="sidebar-brand">
-            <h1>Cálculo III</h1>
-            <p>Guia de Estudos Premium para a P3</p>
+        <div style="display: flex; justify-content: space-between; align-items: flex-start;">
+            <div class="sidebar-brand">
+                <h1>Cálculo III</h1>
+                <p>Guia de Estudos</p>
+            </div>
+            <button onclick="toggleSidebar()" style="background: none; border: none; font-size: 1.5rem; cursor: pointer; color: var(--text-color);" title="Esconder Menu">×</button>
         </div>
         
         <ul class="nav-links">
@@ -415,6 +424,13 @@
             document.documentElement.setAttribute("data-theme", newTheme);
             const btnText = document.getElementById("theme-btn-text");
             btnText.innerText = newTheme === "dark" ? "Modo Claro" : "Modo Escuro";
+        }
+        
+        function toggleSidebar() {
+            const sidebar = document.querySelector('.sidebar');
+            const contentArea = document.querySelector('.content-area');
+            sidebar.classList.toggle('collapsed');
+            contentArea.classList.toggle('expanded');
         }
         
         window.addEventListener('scroll', () => {
