@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guia de Estudos Premium - Cálculo III (P3)</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500&family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- MathJax -->
+    <script>
+        window.MathJax = {
+            tex: { inlineMath: [['$', '$'], ['\\(', '\\)']], displayMath: [['$$', '$$'], ['\\[', '\\]']], processEscapes: true }
+        };
+    </script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+    <style>
+        :root {
+            --bg-color: #f8fafc;
+            --text-color: #1e293b;
+            --primary: #4f46e5;
+            --primary-hover: #4338ca;
+            --primary-light: #e0e7ff;
+            --accent: #06b6d4;
+            --accent-light: #ecfeff;
+            --card-bg: #ffffff;
+            --border-color: #e2e8f0;
+            --sidebar-bg: #ffffff;
+            --shadow: 0 4px 6px -1px rgb(0 0 0 / 0.05), 0 2px 4px -2px rgb(0 0 0 / 0.05);
+            --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.04), 0 4px 6px -4px rgb(0 0 0 / 0.04);
+            
+            --tag-metodo-bg: #eff6ff; --tag-metodo-border: #bfdbfe; --tag-metodo-text: #1d4ed8;
+            --tag-dica-bg: #ecfdf5; --tag-dica-border: #a7f3d0; --tag-dica-text: #047857;
+            --tag-cuidado-bg: #fff1f2; --tag-cuidado-border: #fecdd3; --tag-cuidado-text: #be123c;
+            --tag-tabela-bg: #fdf4ff; --tag-tabela-border: #f5d0fe; --tag-tabela-text: #a21caf;
+        }
+
+        [data-theme="dark"] {
+            --bg-color: #0f172a;
+            --text-color: #e2e8f0;
+            --primary: #6366f1;
+            --primary-hover: #4f46e5;
+            --primary-light: #1e1b4b;
+            --accent: #22d3ee;
+            --accent-light: #083344;
+            --card-bg: #1e293b;
+            --border-color: #334155;
+            --sidebar-bg: #1e293b;
+            --shadow: 0 4px 6px -1px rgb(0 0 0 / 0.2), 0 2px 4px -2px rgb(0 0 0 / 0.2);
+            --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.15), 0 4px 6px -4px rgb(0 0 0 / 0.15);
+            
+            --tag-metodo-bg: #1e293b; --tag-metodo-border: #2563eb; --tag-metodo-text: #60a5fa;
+            --tag-dica-bg: #064e3b; --tag-dica-border: #059669; --tag-dica-text: #34d399;
+            --tag-cuidado-bg: #4c0519; --tag-cuidado-border: #e11d48; --tag-cuidado-text: #fb7185;
+            --tag-tabela-bg: #4a044e; --tag-tabela-border: #d946ef; --tag-tabela-text: #f0abfc;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; transition: background-color 0.3s ease, border-color 0.3s ease; }
+        body { font-family: 'Inter', sans-serif; background-color: var(--bg-color); color: var(--text-color); line-height: 1.6; display: flex; }
+        .sidebar { width: 280px; height: 100vh; background-color: var(--sidebar-bg); border-right: 1px solid var(--border-color); position: fixed; top: 0; left: 0; padding: 2rem 1.5rem; display: flex; flex-direction: column; justify-content: space-between; overflow-y: auto; z-index: 100; }
+        .sidebar-brand h1 { font-family: 'Outfit', sans-serif; font-size: 1.5rem; font-weight: 700; color: var(--primary); margin-bottom: 0.5rem; }
+        .sidebar-brand p { font-size: 0.85rem; color: #64748b; margin-bottom: 2rem; }
+        .nav-links { list-style: none; display: flex; flex-direction: column; gap: 0.5rem; }
+        .nav-links a { display: flex; align-items: center; padding: 0.75rem 1rem; color: var(--text-color); text-decoration: none; border-radius: 0.5rem; font-size: 0.95rem; font-weight: 500; transition: all 0.2s ease; }
+        .nav-links a:hover, .nav-links a.active { background-color: var(--primary-light); color: var(--primary); }
+        .theme-toggle-btn { background-color: var(--primary); color: white; border: none; padding: 0.75rem 1rem; border-radius: 0.5rem; font-weight: 600; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 0.5rem; width: 100%; margin-top: auto; transition: background-color 0.2s ease; }
+        .theme-toggle-btn:hover { background-color: var(--primary-hover); }
+        .content-area { margin-left: 280px; padding: 3rem 4rem; width: calc(100% - 280px); max-width: 1200px; }
+        section { margin-bottom: 5rem; scroll-margin-top: 2rem; }
+        h2.section-title { font-family: 'Outfit', sans-serif; font-size: 2.2rem; font-weight: 700; color: var(--primary); margin-bottom: 1.5rem; border-bottom: 2px solid var(--border-color); padding-bottom: 0.5rem; }
+        .section-intro { font-size: 1.1rem; color: #64748b; margin-bottom: 2rem; }
+        .exercise-card { background-color: var(--card-bg); border: 1px solid var(--border-color); border-radius: 1rem; padding: 2rem; margin-bottom: 3rem; box-shadow: var(--shadow); transition: transform 0.2s ease, box-shadow 0.2s ease; }
+        .exercise-card:hover { box-shadow: var(--shadow-lg); }
+        .exercise-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 1.25rem; }
+        .exercise-tag { background-color: var(--primary-light); color: var(--primary); font-weight: 600; font-size: 0.85rem; padding: 0.35rem 0.75rem; border-radius: 9999px; text-transform: uppercase; letter-spacing: 0.05em; }
+        .exercise-title { font-family: 'Outfit', sans-serif; font-size: 1.5rem; font-weight: 600; color: var(--text-color); }
+        .exercise-statement { background-color: var(--bg-color); border-left: 4px solid var(--primary); padding: 1rem 1.5rem; border-radius: 0 0.5rem 0.5rem 0; margin-bottom: 1.5rem; font-style: italic; }
+        .info-box { border-radius: 0.75rem; padding: 1.25rem 1.5rem; margin-bottom: 1.5rem; border: 1px solid; }
+        .info-box h4 { font-family: 'Outfit', sans-serif; font-weight: 700; margin-bottom: 0.5rem; display: flex; align-items: center; gap: 0.5rem; }
+        .info-box.metodo { background-color: var(--tag-metodo-bg); border-color: var(--tag-metodo-border); color: var(--tag-metodo-text); }
+        .info-box.dica { background-color: var(--tag-dica-bg); border-color: var(--tag-dica-border); color: var(--tag-dica-text); }
+        .info-box.cuidado { background-color: var(--tag-cuidado-bg); border-color: var(--tag-cuidado-border); color: var(--tag-cuidado-text); }
+        .info-box.tabela { background-color: var(--tag-tabela-bg); border-color: var(--tag-tabela-border); color: var(--tag-tabela-text); }
+        .solution-section { margin-top: 2rem; }
+        .solution-title { font-family: 'Outfit', sans-serif; font-size: 1.25rem; font-weight: 600; margin-bottom: 1rem; border-bottom: 1px solid var(--border-color); padding-bottom: 0.25rem; }
+        .step { margin-bottom: 1.5rem; position: relative; padding-left: 2rem; }
+        .step::before { content: ''; position: absolute; left: 7px; top: 28px; bottom: -20px; width: 2px; background-color: var(--border-color); }
+        .step:last-child::before { display: none; }
+        .step-badge { position: absolute; left: 0; top: 0; width: 16px; height: 16px; border-radius: 50%; background-color: var(--primary); border: 3px solid var(--card-bg); box-shadow: 0 0 0 2px var(--primary); }
+        .step-title { font-weight: 600; font-size: 1rem; margin-bottom: 0.5rem; color: var(--text-color); }
+        .step-content { font-size: 0.95rem; }
+        .step-content p { margin-bottom: 0.5rem; }
+        .formula-block { background-color: var(--bg-color); padding: 1rem; border-radius: 0.5rem; overflow-x: auto; margin: 0.75rem 0; border: 1px solid var(--border-color); }
+        .styled-table { width: 100%; border-collapse: collapse; margin: 25px 0; font-size: 0.9em; font-family: 'Inter', sans-serif; box-shadow: var(--shadow); border-radius: 0.5rem; overflow: hidden; }
+        .styled-table thead tr { background-color: var(--primary); color: #ffffff; text-align: left; }
+        .styled-table th, .styled-table td { padding: 12px 15px; border-bottom: 1px solid var(--border-color); }
+        .styled-table tbody tr:nth-of-type(even) { background-color: var(--bg-color); }
+        .styled-table tbody tr:last-of-type { border-bottom: 2px solid var(--primary); }
+
+        @media print {
+            body { background-color: white; color: black; font-size: 11pt; }
+            .sidebar { display: none !important; }
+            .content-area { margin-left: 0 !important; width: 100% !important; padding: 0 !important; max-width: 100% !important; }
+            .exercise-card { box-shadow: none !important; border: 1px solid #94a3b8 !important; background-color: white !important; page-break-inside: avoid; margin-bottom: 2rem !important; padding: 1.5rem !important; }
+            .exercise-statement { background-color: #f1f5f9 !important; border-left: 3px solid black !important; }
+            .formula-block { background-color: #f8fafc !important; border: 1px solid #cbd5e1 !important; }
+            .info-box { background-color: #f8fafc !important; border-color: #94a3b8 !important; color: black !important; }
+            .step::before { background-color: #cbd5e1 !important; }
+            .step-badge { border-color: white !important; }
+            .theme-toggle-btn { display: none !important; }
+            section { page-break-before: always; }
+            section:first-of-type { page-break-before: avoid; }
+            h2.section-title { color: black !important; border-bottom: 2px solid black !important; }
+        }
+    </style>
+</head>
+<body>
+    <div class="sidebar">
+        <div class="sidebar-brand">
+            <h1>Cálculo III</h1>
+            <p>Guia de Estudos Premium para a P3</p>
+        </div>
+        
+        <ul class="nav-links">
+            <li><a href="#intro" class="active">Introdução</a></li>
+            <li><a href="#tabelas">Tabelas Notáveis</a></li>
+            <li><a href="#lista5">Lista 5: Sequências & Séries</a></li>
+            <li><a href="#lista6">Lista 6: Séries de Potências</a></li>
+            <li><a href="#lista7">Lista 7: Solução de EDOs</a></li>
+            <li><a href="#trabalho">Trabalho Extra: Frobenius</a></li>
+        </ul>
+        
+        <button class="theme-toggle-btn" onclick="toggleTheme()">
+            <span id="theme-btn-text">Modo Escuro</span>
+        </button>
+    </div>
+
+    <div class="content-area">
+        <section id="intro">
+            <h2 class="section-title">Guia de Estudos Premium - P3 de Cálculo III</h2>
+            <div class="section-intro">
+                <p>Este material foi estruturado sob medida para a preparação da sua terceira prova (P3) de <strong>Cálculo III (CM043)</strong>. As resoluções foram minuciosamente expandidas, possuindo agora em média <strong>5 passos detalhados</strong> por questão.</p>
+                <div class="info-box tabela">
+                    <h4>[NOVO] Integração com Tabelas Notáveis</h4>
+                    <p>Sempre que a resolução depender de integrais famosas, derivadas fundamentais, Séries de Taylor ou Transformadas de Laplace conhecidas, você verá um selo referenciando a seção de <strong>Tabelas Notáveis</strong>.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="tabelas">
+            <h2 class="section-title">Tabelas Notáveis</h2>
+            <div class="section-intro">
+                Esta seção agrupa os principais resultados tabelados utilizados durante as resoluções.
+            </div>
+
+            <div class="exercise-card">
+                <div class="exercise-title">1. Tabela de Séries de Maclaurin (Taylor em x = 0)</div>
+                <table class="styled-table">
+                    <thead><tr><th>Função $f(x)$</th><th>Série de Maclaurin $\sum c_n x^n$</th><th>Intervalo de Convergência</th></tr></thead>
+                    <tbody>
+                        <tr><td>$\frac{1}{1-x}$</td><td>$\sum_{n=0}^{\infty} x^n = 1 + x + x^2 + \dots$</td><td>$(-1, 1)$</td></tr>
+                        <tr><td>$e^x$</td><td>$\sum_{n=0}^{\infty} \frac{x^n}{n!} = 1 + x + \frac{x^2}{2!} + \dots$</td><td>$(-\infty, \infty)$</td></tr>
+                        <tr><td>$\sin x$</td><td>$\sum_{n=0}^{\infty} (-1)^n \frac{x^{2n+1}}{(2n+1)!} = x - \frac{x^3}{3!} + \dots$</td><td>$(-\infty, \infty)$</td></tr>
+                        <tr><td>$\cos x$</td><td>$\sum_{n=0}^{\infty} (-1)^n \frac{x^{2n}}{(2n)!} = 1 - \frac{x^2}{2!} + \dots$</td><td>$(-\infty, \infty)$</td></tr>
+                        <tr><td>$\arctan x$</td><td>$\sum_{n=0}^{\infty} (-1)^n \frac{x^{2n+1}}{2n+1} = x - \frac{x^3}{3} + \dots$</td><td>$[-1, 1]$</td></tr>
+                        <tr><td>$\ln(1+x)$</td><td>$\sum_{n=1}^{\infty} (-1)^{n-1} \frac{x^n}{n} = x - \frac{x^2}{2} + \dots$</td><td>$(-1, 1]$</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="exercise-card">
+                <div class="exercise-title">2. Tabela de Limites e Derivadas Fundamentais</div>
+                <table class="styled-table">
+                    <thead><tr><th>Expressão</th><th>Resultado/Derivada</th><th>Contexto</th></tr></thead>
+                    <tbody>
+                        <tr><td>$\lim_{x\to 0} \frac{\sin x}{x}$</td><td>$1$</td><td>Limite Trigonométrico Fundamental</td></tr>
+                        <tr><td>$\frac{d}{dx} [\arctan x]$</td><td>$\frac{1}{1+x^2}$</td><td>Derivada de arco tangente</td></tr>
+                        <tr><td>$\frac{d}{dx} [\ln x]$</td><td>$\frac{1}{x}$</td><td>Derivada do logaritmo natural</td></tr>
+                    </tbody>
+                </table>
+            </div>
+            
+            <div class="exercise-card">
+                <div class="exercise-title">3. Tabela de Transformadas de Laplace e Integrais</div>
+                <table class="styled-table">
+                    <thead><tr><th>$f(t)$ ou Integral</th><th>$\mathcal{L}\{f(t)\} = F(s)$ ou Resultado</th><th>Condição</th></tr></thead>
+                    <tbody>
+                        <tr><td>$\int \frac{1}{x} dx$</td><td>$\ln|x| + C$</td><td>Integral imediata</td></tr>
+                        <tr><td>$\mathcal{L}\{1\}$</td><td>$\frac{1}{s}$</td><td>$s > 0$</td></tr>
+                        <tr><td>$\mathcal{L}\{t^n\}$</td><td>$\frac{n!}{s^{n+1}}$</td><td>$s > 0$</td></tr>
+                        <tr><td>$\mathcal{L}\{e^{at}\}$</td><td>$\frac{1}{s-a}$</td><td>$s > a$</td></tr>
+                        <tr><td>$\mathcal{L}\{\sin(\omega t)\}$</td><td>$\frac{\omega}{s^2+\omega^2}$</td><td>$s > 0$</td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- A LISTA 5 -->
+        <section id="lista5">
+            <h2 class="section-title">Lista 5: Sequências e Séries Numéricas</h2>
+            
+            <!-- Lista 5 - Ex 1 -->
+            <div class="exercise-card">
+                <div class="exercise-header"><span class="exercise-tag">Lista 5, Ex 1</span><span class="exercise-title">Limites de Sequências</span></div>
+                <div class="exercise-statement">Calcule o limite $\lim_{n \to \infty} a_n$ para as sequências: (c) $a_n = \frac{7 - 4n^2}{3 + 2n^2}$, (h) $a_n = n^2 \sin(1/n)$, (i) $a_n = \sqrt{n+1} - \sqrt{n}$</div>
+
+                <div class="solution-section">
+                    <h3 class="solution-title">Item (c): $a_n = \frac{7 - 4n^2}{3 + 2n^2}$</h3>
+                    <div class="step"><div class="step-badge"></div><div class="step-title">Passo 1: Identificação do Limite</div><div class="step-content">Montamos o limite para $n \to \infty$.</div></div>
+                    <div class="step"><div class="step-badge"></div><div class="step-title">Passo 2: Análise da Indeterminação</div><div class="step-content">Como numerador e denominador são polinômios de grau 2, avaliamos que tendem a $\frac{-\infty}{\infty}$.</div></div>
+                    <div class="step"><div class="step-badge"></div><div class="step-title">Passo 3: Fatoração Estratégica</div><div class="step-content">Colocamos $n^2$ em evidência:<br>$$\lim_{n\to\infty} \frac{n^2(\frac{7}{n^2} - 4)}{n^2(\frac{3}{n^2} + 2)}$$</div></div>
+                    <div class="step"><div class="step-badge"></div><div class="step-title">Passo 4: Simplificação Algébrica</div><div class="step-content">Cancelamos os $n^2$:<br>$$\lim_{n\to\infty} \frac{\frac{7}{n^2} - 4}{\frac{3}{n^2} + 2}$$</div></div>
+                    <div class="step"><div class="step-badge"></div><div class="step-title">Passo 5: Conclusão do Limite</div><div class="step-content">Como $\frac{7}{n^2}$ e $\frac{3}{n^2}$ vão a zero, sobra apenas $\frac{-4}{2} = -2$. Logo, <strong>converge para -2</strong>.</div></div>
+                </div>
+
+                <div class="solution-section">
+                    <h3 class="solution-title">Item (h): $a_n = n^2 \sin(1/n)$</h3>
+                    <div class="info-box tabela"><h4>[REFERÊNCIA] Tabela de Limites</h4><p>Utilizaremos o Limite Trigonométrico Fundamental da aba de Tabelas.</p></div>
+                    <div class="step"><div class="step-badge"></div><div class="step-title">Passo 1: Formulação</div><div class="step-content">Aplicamos o limite: $\lim_{n\to\infty} n^2 \sin(1/n)$.</div></div>
+                    <div class="step"><div class="step-badge"></div><div class="step-title">Passo 2: Identificação da Indeterminação</div><div class="step-content">Temos a forma $\infty \cdot 0$.</div></div>
+                    <div class="step"><div class="step-badge"></div><div class="step-title">Passo 3: Substituição de Variável</div><div class="step-content">Sendo $x = 1/n$, quando $n \to \infty$, temos $x \to 0^+$. A expressão vira $\frac{\sin x}{x^2}$.</div></div>
+                    <div class="step"><div class="step-badge"></div><div class="step-title">Passo 4: Rearranjo</div><div class="step-content">Reescrevemos como: $$\lim_{x\to 0^+} \left( \frac{\sin x}{x} \cdot \frac{1}{x} \right)$$</div></div>
+                    <div class="step"><div class="step-badge"></div><div class="step-title">Passo 5: Resolução e Conclusão</div><div class="step-content">O termo $\frac{\sin x}{x}$ vai a 1 (Tabela). O termo $\frac{1}{x}$ vai a $+\infty$. Logo, $1 \cdot \infty = \infty$. <strong>Diverge.</strong></div></div>
+                </div>
+            </div>
+            
+            <!-- Lista 5 - Ex 2 -->
+            <div class="exercise-card">
+                <div class="exercise-header"><span class="exercise-tag">Lista 5, Ex 2</span><span class="exercise-title">Soma de Séries Telescópicas</span></div>
+                <div class="exercise-statement">Calcule a soma da série: (d) $\sum_{n=1}^{\infty} \frac{1}{n(n+2)}$</div>
+                
+                <div class="solution-section">
+                    <h3 class="solution-title">Item (d)</h3>
+                    <div class="step"><div class="step-badge"></div><div class="step-title">Passo 1: Identificação do Método</div><div class="step-content">Série com produto no denominador indica Frações Parciais para virar Telescópica.</div></div>
+                    <div class="step"><div class="step-badge"></div><div class="step-title">Passo 2: Frações Parciais</div><div class="step-content">$$\frac{1}{n(n+2)} = \frac{A}{n} + \frac{B}{n+2} \Rightarrow A(n+2) + Bn = 1$$</div></div>
+                    <div class="step"><div class="step-badge"></div><div class="step-title">Passo 3: Resolução dos Coeficientes</div><div class="step-content">Fazendo $n=0$: $2A=1 \Rightarrow A=1/2$. Fazendo $n=-2$: $-2B=1 \Rightarrow B=-1/2$. Logo, $\frac{1}{2} \left( \frac{1}{n} - \frac{1}{n+2} \right)$.</div></div>
+                    <div class="step"><div class="step-badge"></div><div class="step-title">Passo 4: Abertura das Somas (Telescópica)</div><div class="step-content">Analisamos a n-ésima soma parcial $S_N = \frac{1}{2} \sum_{n=1}^N \left( \frac{1}{n} - \frac{1}{n+2} \right)$.<br>Para os primeiros termos: $(1 - 1/3) + (1/2 - 1/4) + (1/3 - 1/5) \dots$</div></div>
+                    <div class="step"><div class="step-badge"></div><div class="step-title">Passo 5: Conclusão com Limite</div><div class="step-content">Todos os termos se cancelam exceto os dois primeiros positivos ($1$ e $1/2$) e os últimos negativos que vão a $0$. A soma é $\frac{1}{2} \left( 1 + \frac{1}{2} \right) = \frac{3}{4}$.</div></div>
+                </div>
+            </div>
+            
+            <!-- Lista 5 - Ex 3 -->
+            <div class="exercise-card">
+                <div class="exercise-header"><span class="exercise-tag">Lista 5, Ex 3</span><span class="exercise-title">Critérios de Convergência</span></div>
+                <div class="exercise-statement">Determine se convergem: (f) $\sum \frac{n+5}{\sqrt[3]{n^7 + n^2}}$</div>
+                
+                <div class="solution-section">
+                    <h3 class="solution-title">Item (f)</h3>
+                    <div class="step"><div class="step-badge"></div><div class="step-title">Passo 1: Comportamento Assintótico</div><div class="step-content">No infinito, $n+5 \sim n$. E o denominador $\sqrt[3]{n^7+n^2} \sim n^{7/3}$.</div></div>
+                    <div class="step"><div class="step-badge"></div><div class="step-title">Passo 2: Definição da Série Comparativa</div><div class="step-content">O termo geral se comporta como $b_n = \frac{n}{n^{7/3}} = \frac{1}{n^{4/3}}$.</div></div>
+                    <div class="step"><div class="step-badge"></div><div class="step-title">Passo 3: Aplicação do Teste do Limite</div><div class="step-content">Avaliamos $\lim \frac{a_n}{b_n}$. O limite dará 1, que é finito e maior que 0.</div></div>
+                    <div class="step"><div class="step-badge"></div><div class="step-title">Passo 4: Análise da p-série</div><div class="step-content">A série comparativa é uma p-série $\sum \frac{1}{n^p}$ com $p = 4/3$.</div></div>
+                    <div class="step"><div class="step-badge"></div><div class="step-title">Passo 5: Conclusão</div><div class="step-content">Como $p = 4/3 > 1$, a p-série converge. Pelo Teste de Comparação no Limite, a série original também <strong>converge</strong>.</div></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- LISTA 6 SECTION -->
+        <section id="lista6">
+            <h2 class="section-title">Lista 6: Séries de Potências & Taylor</h2>
+            <div class="info-box tabela"><h4>[REFERÊNCIA] Tabelas Notáveis</h4><p>Nesta lista utilizaremos a aba de Tabelas para as funções $e^x, \ln(1+x), \cos(x)$.</p></div>
+            
+            <div class="exercise-card">
+                <div class="exercise-header"><span class="exercise-tag">Lista 6, Ex 1</span><span class="exercise-title">Raio e Intervalo de Convergência</span></div>
+                <div class="exercise-statement">Calcule raio e intervalo para: (e) $\sum_{n=1}^{\infty} \frac{3^n x^n}{(n+1)^2}$</div>
+                <div class="solution-section">
+                    <h3 class="solution-title">Item (e)</h3>
+                    <div class="step"><div class="step-badge"></div><div class="step-title">Passo 1: Aplicação do Teste da Razão</div><div class="step-content">Calculamos $L = \lim_{n\to\infty} \left| \frac{a_{n+1}}{a_n} \right| = \lim_{n\to\infty} \left| \frac{3^{n+1} x^{n+1}}{(n+2)^2} \cdot \frac{(n+1)^2}{3^n x^n} \right|$.</div></div>
+                    <div class="step"><div class="step-badge"></div><div class="step-title">Passo 2: Simplificação dos Termos</div><div class="step-content">O termo $3^{n+1}/3^n$ resulta em $3$. $x^{n+1}/x^n$ resulta em $|x|$. Logo: $3|x| \lim_{n\to\infty} \frac{(n+1)^2}{(n+2)^2}$.</div></div>
+                    <div class="step"><div class="step-badge"></div><div class="step-title">Passo 3: Obtenção do Raio (R)</div><div class="step-content">O limite da razão polinomial é $1$. Logo $L = 3|x|$. Para convergir, $3|x| < 1 \Rightarrow |x| < 1/3$. Portanto $R = 1/3$.</div></div>
+                    <div class="step"><div class="step-badge"></div><div class="step-title">Passo 4: Verificação do Extremo $x = 1/3$</div><div class="step-content">Substituindo $x=1/3$, a série fica $\sum \frac{1}{(n+1)^2}$, que converge por ser p-série com $p=2 > 1$.</div></div>
+                    <div class="step"><div class="step-badge"></div><div class="step-title">Passo 5: Verificação do Extremo $x = -1/3$</div><div class="step-content">Substituindo $x=-1/3$, fica $\sum \frac{(-1)^n}{(n+1)^2}$. Converge absolutamente. Logo o intervalo de convergência é <strong>$[-1/3, 1/3]$</strong>.</div></div>
+                </div>
+            </div>
+
+            <div class="exercise-card">
+                <div class="exercise-header"><span class="exercise-tag">Lista 6, Ex 6 e 8</span><span class="exercise-title">Séries de Maclaurin usando a Tabela</span></div>
+                <div class="exercise-statement">Ache as séries para $f(x) = \ln(1-x^2)$ e use para derivar conclusões.</div>
+                <div class="solution-section">
+                    <div class="info-box tabela"><h4>[REFERÊNCIA]</h4><p>Consultando a aba de Tabelas, sabemos que $\ln(1+u) = \sum_{n=1}^{\infty} (-1)^{n-1} \frac{u^n}{n}$.</p></div>
+                    <div class="step"><div class="step-badge"></div><div class="step-title">Passo 1: Substituição de Variável</div><div class="step-content">Fazemos $u = -x^2$. A expressão vira $\ln(1 - x^2)$.</div></div>
+                    <div class="step"><div class="step-badge"></div><div class="step-title">Passo 2: Expansão da Série</div><div class="step-content">Aplicando na fórmula: $\sum_{n=1}^{\infty} (-1)^{n-1} \frac{(-x^2)^n}{n}$.</div></div>
+                    <div class="step"><div class="step-badge"></div><div class="step-title">Passo 3: Distribuição do Sinal</div><div class="step-content">$(-x^2)^n = (-1)^n x^{2n}$.</div></div>
+                    <div class="step"><div class="step-badge"></div><div class="step-title">Passo 4: Agrupamento Algébrico</div><div class="step-content">$(-1)^{n-1} \cdot (-1)^n = (-1)^{2n-1} = -1$. Logo a série fica $-\sum_{n=1}^{\infty} \frac{x^{2n}}{n}$.</div></div>
+                    <div class="step"><div class="step-badge"></div><div class="step-title">Passo 5: Conclusão do Intervalo</div><div class="step-content">A série de $\ln(1+u)$ converge para $u \in (-1, 1]$. Então $-1 < -x^2 \le 1 \Rightarrow x^2 < 1 \Rightarrow x \in (-1, 1)$.</div></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- LISTA 7 SECTION -->
+        <section id="lista7">
+            <h2 class="section-title">Lista 7: Solução de EDOs em Série</h2>
+            <div class="exercise-card">
+                <div class="exercise-header"><span class="exercise-tag">Lista 7, Ex 1</span><span class="exercise-title">Soluções em Série no ponto ordinário</span></div>
+                <div class="exercise-statement">Determine a série em potências de $x$ para $y'' - xy' - y = 0$.</div>
+                <div class="solution-section">
+                    <div class="step"><div class="step-badge"></div><div class="step-title">Passo 1: Propor a solução em série</div><div class="step-content">Assumimos $y(x) = \sum_{n=0}^{\infty} c_n x^n$. Derivamos $y' = \sum_{n=1}^{\infty} n c_n x^{n-1}$ e $y'' = \sum_{n=2}^{\infty} n(n-1)c_n x^{n-2}$.</div></div>
+                    <div class="step"><div class="step-badge"></div><div class="step-title">Passo 2: Substituir na EDO</div><div class="step-content">$\sum_{n=2}^{\infty} n(n-1)c_n x^{n-2} - x\sum_{n=1}^{\infty} n c_n x^{n-1} - \sum_{n=0}^{\infty} c_n x^n = 0$.</div></div>
+                    <div class="step"><div class="step-badge"></div><div class="step-title">Passo 3: Acerto de Índices e Potências</div><div class="step-content">Inserimos o $x$: $xy' = \sum_{n=1}^{\infty} n c_n x^n$. Para $y''$, fazemos shift de $k=n-2 \Rightarrow n=k+2$.<br>$\sum_{k=0}^{\infty} (k+2)(k+1)c_{k+2} x^k$.</div></div>
+                    <div class="step"><div class="step-badge"></div><div class="step-title">Passo 4: Relação de Recorrência</div><div class="step-content">Igualando o coeficiente geral a zero: $(n+2)(n+1)c_{n+2} - n c_n - c_n = 0 \Rightarrow c_{n+2} = \frac{c_n}{n+2}$.</div></div>
+                    <div class="step"><div class="step-badge"></div><div class="step-title">Passo 5: Geração dos Termos</div><div class="step-content">Para $c_0$, teremos a série $y_1$. Para $c_1$, $y_2$. Logo, $y(x) = c_0(1 + \frac{x^2}{2} + \frac{x^4}{8} + \dots) + c_1(x + \frac{x^3}{3} + \frac{x^5}{15} + \dots)$.</div></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- TRABALHO EXTRA SECTION -->
+        <section id="trabalho">
+            <h2 class="section-title">Trabalho Extra: Método de Frobenius</h2>
+            <div class="exercise-card">
+                <div class="exercise-header"><span class="exercise-tag">P3 e Extra</span><span class="exercise-title">Singularidades Regulares</span></div>
+                <div class="exercise-statement">Resolva por Frobenius $9x^2 y'' + 9x^2 y' + 2y = 0$.</div>
+                <div class="solution-section">
+                    <div class="step"><div class="step-badge"></div><div class="step-title">Passo 1: Verificação de Ponto Singular Regular</div><div class="step-content">Em $x=0$, $P(x)=9x^2=0$. O ponto é singular. Calculando os limites, $p_0 = 0$ e $q_0 = 2/9$, finitos. Ponto regular.</div></div>
+                    <div class="step"><div class="step-badge"></div><div class="step-title">Passo 2: Equação Indicial</div><div class="step-content">A equação indicial é $r(r-1) + p_0 r + q_0 = 0 \Rightarrow r(r-1) + 2/9 = 0 \Rightarrow r^2 - r + 2/9 = 0$.</div></div>
+                    <div class="step"><div class="step-badge"></div><div class="step-title">Passo 3: Raízes (r1 e r2)</div><div class="step-content">Resolvendo a quadrática, as raízes indiciais são $r_1 = 2/3$ e $r_2 = 1/3$. Como não diferem por inteiro, teremos duas soluções de Frobenius.</div></div>
+                    <div class="step"><div class="step-badge"></div><div class="step-title">Passo 4: Relação de Recorrência (Frobenius)</div><div class="step-content">Admitindo $y = \sum c_n x^{n+r}$, ao substituir obtemos: $c_n = \frac{-c_{n-1}}{(n+r-1/3)(n+r-2/3)}$.</div></div>
+                    <div class="step"><div class="step-badge"></div><div class="step-title">Passo 5: Solução Geral</div><div class="step-content">Substituindo os $r$ e extraindo $c_n$, $y(x) = C_1 x^{2/3} (1 - x + \frac{1}{4}x^2 \dots) + C_2 x^{1/3} (1 - x + \frac{1}{2}x^2 \dots)$.</div></div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <script>
+        function toggleTheme() {
+            const currentTheme = document.documentElement.getAttribute("data-theme");
+            const newTheme = currentTheme === "dark" ? "light" : "dark";
+            document.documentElement.setAttribute("data-theme", newTheme);
+            const btnText = document.getElementById("theme-btn-text");
+            btnText.innerText = newTheme === "dark" ? "Modo Claro" : "Modo Escuro";
+        }
+        
+        window.addEventListener('scroll', () => {
+            const sections = document.querySelectorAll('section');
+            const navLinks = document.querySelectorAll('.nav-links a');
+            let currentId = 'intro';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                if (window.scrollY >= sectionTop - 100) {
+                    currentId = section.getAttribute('id');
+                }
+            });
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === `#${currentId}`) {
+                    link.classList.add('active');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
