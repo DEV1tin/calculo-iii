@@ -173,19 +173,53 @@
             </div>
 
             <div class="exercise-card">
-                <div class="exercise-title">2. Tabela de Limites e Derivadas Fundamentais</div>
+                <div class="exercise-title">2. Tabela de Limites Fundamentais</div>
                 <table class="styled-table">
-                    <thead><tr><th>Expressão</th><th>Resultado/Derivada</th><th>Contexto</th></tr></thead>
+                    <thead><tr><th>Expressão</th><th>Resultado</th><th>Contexto</th></tr></thead>
                     <tbody>
                         <tr><td>$\lim_{x\to 0} \frac{\sin x}{x}$</td><td>$1$</td><td>Limite Trigonométrico Fundamental</td></tr>
-                        <tr><td>$\frac{d}{dx} [\arctan x]$</td><td>$\frac{1}{1+x^2}$</td><td>Derivada de arco tangente</td></tr>
-                        <tr><td>$\frac{d}{dx} [\ln x]$</td><td>$\frac{1}{x}$</td><td>Derivada do logaritmo natural</td></tr>
+                        <tr><td>$\lim_{n\to \infty} (1+\frac{1}{n})^n$</td><td>$e$</td><td>Limite Exponencial Fundamental</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="exercise-card">
+                <div class="exercise-title">3. Tabela de Derivadas Imediatas</div>
+                <table class="styled-table">
+                    <thead><tr><th>Função $f(x)$</th><th>Derivada $f'(x)$</th></tr></thead>
+                    <tbody>
+                        <tr><td>$c$ (constante)</td><td>$0$</td></tr>
+                        <tr><td>$x^n$</td><td>$n x^{n-1}$</td></tr>
+                        <tr><td>$e^x$</td><td>$e^x$</td></tr>
+                        <tr><td>$a^x$</td><td>$a^x \ln(a)$</td></tr>
+                        <tr><td>$\ln(x)$</td><td>$\frac{1}{x}$</td></tr>
+                        <tr><td>$\sin(x)$</td><td>$\cos(x)$</td></tr>
+                        <tr><td>$\cos(x)$</td><td>$-\sin(x)$</td></tr>
+                        <tr><td>$\tan(x)$</td><td>$\sec^2(x)$</td></tr>
+                        <tr><td>$\sec(x)$</td><td>$\sec(x)\tan(x)$</td></tr>
+                        <tr><td>$\arcsin(x)$</td><td>$\frac{1}{\sqrt{1-x^2}}$</td></tr>
+                        <tr><td>$\arccos(x)$</td><td>$-\frac{1}{\sqrt{1-x^2}}$</td></tr>
+                        <tr><td>$\arctan(x)$</td><td>$\frac{1}{1+x^2}$</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="exercise-card">
+                <div class="exercise-title">4. Propriedades e Operações de Derivadas</div>
+                <table class="styled-table">
+                    <thead><tr><th>Regra</th><th>Expressão da Derivada</th></tr></thead>
+                    <tbody>
+                        <tr><td>Soma / Subtração</td><td>$[f(x) \pm g(x)]' = f'(x) \pm g'(x)$</td></tr>
+                        <tr><td>Multiplicação por Constante</td><td>$[c \cdot f(x)]' = c \cdot f'(x)$</td></tr>
+                        <tr><td>Regra do Produto</td><td>$[f(x)g(x)]' = f'(x)g(x) + f(x)g'(x)$</td></tr>
+                        <tr><td>Regra do Quociente</td><td>$\left[\frac{f(x)}{g(x)}\right]' = \frac{f'(x)g(x) - f(x)g'(x)}{[g(x)]^2}$</td></tr>
+                        <tr><td>Regra da Cadeia</td><td>$[f(g(x))]' = f'(g(x)) \cdot g'(x)$</td></tr>
                     </tbody>
                 </table>
             </div>
             
             <div class="exercise-card">
-                <div class="exercise-title">3. Tabela de Transformadas de Laplace e Integrais</div>
+                <div class="exercise-title">5. Tabela de Transformadas de Laplace e Integrais</div>
                 <table class="styled-table">
                     <thead><tr><th>$f(t)$ ou Integral</th><th>$\mathcal{L}\{f(t)\} = F(s)$ ou Resultado</th><th>Condição</th></tr></thead>
                     <tbody>
