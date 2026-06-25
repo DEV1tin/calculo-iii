@@ -252,7 +252,7 @@
             <!-- Lista 5 - Ex 1 -->
             <div class="exercise-card">
                 <div class="exercise-header"><span class="exercise-tag">Lista 5, Ex 1</span><span class="exercise-title">Limites de Sequências</span></div>
-                <div class="exercise-statement">Calcule o limite $\lim_{n \to \infty} a_n$ para as sequências: (c) $a_n = \frac{7 - 4n^2}{3 + 2n^2}$, (h) $a_n = n^2 \sin(1/n)$, (i) $a_n = \sqrt{n+1} - \sqrt{n}$</div>
+                <div class="exercise-statement">Calcule o limite $\lim_{n \to \infty} a_n$ para as sequências: (c) $a_n = \frac{7 - 4n^2}{3 + 2n^2}$, (h) $a_n = n^2 \sin(1/n)$, (i) $a_n = \sqrt{n+1} - \sqrt{n}$, (j) $a_n = \frac{\ln n}{n}$, (k) $a_n = \left(1+\frac{2}{n}\right)^n$, (l) $a_n = \frac{n!}{n^n}$</div>
                 <div class="info-box metodo">
                     <h4>Introdução Teórica: Limites de Sequências</h4>
                     <p><strong>O que é:</strong> Uma sequência numérica é uma lista ordenada de números. O estudo de limites de sequências visa entender o comportamento do termo geral $a_n$ à medida que $n$ cresce para o infinito.</p>
@@ -277,12 +277,39 @@
                     <div class="step"><div class="step-badge"></div><div class="step-title">Passo 4: Rearranjo</div><div class="step-content">Reescrevemos como: $$\lim_{x\to 0^+} \left( \frac{\sin x}{x} \cdot \frac{1}{x} \right)$$</div></div>
                     <div class="step"><div class="step-badge"></div><div class="step-title">Passo 5: Resolução e Conclusão</div><div class="step-content">O termo $\frac{\sin x}{x}$ vai a 1 (Tabela). O termo $\frac{1}{x}$ vai a $+\infty$. Logo, $1 \cdot \infty = \infty$. <strong>Diverge.</strong></div></div>
                 </div>
+
+                <div class="solution-section">
+                    <h3 class="solution-title">Item (j): $a_n = \frac{\ln n}{n}$</h3>
+                    <div class="step"><div class="step-badge"></div><div class="step-title">Passo 1: Identificação</div><div class="step-content">O limite $\lim_{n \to \infty} \frac{\ln n}{n}$ possui a indeterminação $\frac{\infty}{\infty}$.</div></div>
+                    <div class="step"><div class="step-badge"></div><div class="step-title">Passo 2: Extensão contínua</div><div class="step-content">Trocamos $n$ por $x \in \mathbb{R}$ para usar L'Hôpital: $\lim_{x \to \infty} \frac{\ln x}{x}$.</div></div>
+                    <div class="step"><div class="step-badge"></div><div class="step-title">Passo 3: Regra de L'Hôpital</div><div class="step-content">Derivando numerador e denominador: $\lim_{x \to \infty} \frac{1/x}{1}$.</div></div>
+                    <div class="step"><div class="step-badge"></div><div class="step-title">Passo 4: Resolução</div><div class="step-content">$\lim_{x \to \infty} \frac{1}{x} = 0$.</div></div>
+                    <div class="step"><div class="step-badge"></div><div class="step-title">Passo 5: Conclusão</div><div class="step-content">O limite da sequência também é 0. <strong>Converge para 0.</strong></div></div>
+                </div>
+
+                <div class="solution-section">
+                    <h3 class="solution-title">Item (k): $a_n = \left(1+\frac{2}{n}\right)^n$</h3>
+                    <div class="step"><div class="step-badge"></div><div class="step-title">Passo 1: Identificação</div><div class="step-content">Temos a forma indeterminada $1^\infty$.</div></div>
+                    <div class="step"><div class="step-badge"></div><div class="step-title">Passo 2: Mudança de variável</div><div class="step-content">Fazemos $u = \frac{n}{2} \Rightarrow n = 2u$. Quando $n \to \infty$, $u \to \infty$.</div></div>
+                    <div class="step"><div class="step-badge"></div><div class="step-title">Passo 3: Substituição</div><div class="step-content">$\lim_{u \to \infty} \left(1+\frac{1}{u}\right)^{2u}$.</div></div>
+                    <div class="step"><div class="step-badge"></div><div class="step-title">Passo 4: Propriedade de Potência</div><div class="step-content">Podemos reescrever como $\left[\lim_{u \to \infty} \left(1+\frac{1}{u}\right)^{u}\right]^2$.</div></div>
+                    <div class="step"><div class="step-badge"></div><div class="step-title">Passo 5: Conclusão</div><div class="step-content">O limite interno é o Limite Fundamental $e$. Logo, o resultado é $e^2$. <strong>Converge.</strong></div></div>
+                </div>
+
+                <div class="solution-section">
+                    <h3 class="solution-title">Item (l): $a_n = \frac{n!}{n^n}$</h3>
+                    <div class="step"><div class="step-badge"></div><div class="step-title">Passo 1: Abertura dos termos</div><div class="step-content">$a_n = \frac{1 \cdot 2 \cdot 3 \dots n}{n \cdot n \cdot n \dots n}$.</div></div>
+                    <div class="step"><div class="step-badge"></div><div class="step-title">Passo 2: Agrupamento</div><div class="step-content">Isolamos o primeiro e o último termo: $a_n = \frac{1}{n} \cdot \left(\frac{2 \dots n-1}{n \dots n}\right) \cdot \frac{n}{n}$.</div></div>
+                    <div class="step"><div class="step-badge"></div><div class="step-title">Passo 3: Majorância</div><div class="step-content">Sabemos que $\frac{2}{n} \le 1, \dots, \frac{n-1}{n} \le 1$. Logo, $0 \le a_n \le \frac{1}{n}$.</div></div>
+                    <div class="step"><div class="step-badge"></div><div class="step-title">Passo 4: Teorema do Confronto</div><div class="step-content">Aplicamos o limite nas extremidades: $\lim 0 = 0$ e $\lim \frac{1}{n} = 0$.</div></div>
+                    <div class="step"><div class="step-badge"></div><div class="step-title">Passo 5: Conclusão</div><div class="step-content">Pelo Teorema do Confronto (Sanduíche), $\lim a_n = 0$. <strong>Converge para 0.</strong></div></div>
+                </div>
             </div>
             
             <!-- Lista 5 - Ex 2 -->
             <div class="exercise-card">
                 <div class="exercise-header"><span class="exercise-tag">Lista 5, Ex 2</span><span class="exercise-title">Soma de Séries Telescópicas</span></div>
-                <div class="exercise-statement">Calcule a soma da série: (d) $\sum_{n=1}^{\infty} \frac{1}{n(n+2)}$</div>
+                <div class="exercise-statement">Calcule a soma da série: (d) $\sum_{n=1}^{\infty} \frac{1}{n(n+2)}$, (e) $\sum_{n=1}^{\infty} \frac{1}{n(n+1)}$, (f) $\sum_{n=2}^{\infty} \ln\left(1 - \frac{1}{n^2}\right)$, (g) $\sum_{n=1}^{\infty} \left( e^{1/n} - e^{1/(n+1)} \right)$</div>
                 <div class="info-box metodo">
                     <h4>Introdução Teórica: Séries Telescópicas</h4>
                     <p><strong>O que são:</strong> São séries cuja soma parcial $S_N$ possui termos que se cancelam em cascata (cancelamento telescópico), restando apenas os primeiros e os últimos termos da soma.</p>
@@ -297,12 +324,39 @@
                     <div class="step"><div class="step-badge"></div><div class="step-title">Passo 4: Abertura das Somas (Telescópica)</div><div class="step-content">Analisamos a n-ésima soma parcial $S_N = \frac{1}{2} \sum_{n=1}^N \left( \frac{1}{n} - \frac{1}{n+2} \right)$.<br>Para os primeiros termos: $(1 - 1/3) + (1/2 - 1/4) + (1/3 - 1/5) \dots$</div></div>
                     <div class="step"><div class="step-badge"></div><div class="step-title">Passo 5: Conclusão com Limite</div><div class="step-content">Todos os termos se cancelam exceto os dois primeiros positivos ($1$ e $1/2$) e os últimos negativos que vão a $0$. A soma é $\frac{1}{2} \left( 1 + \frac{1}{2} \right) = \frac{3}{4}$.</div></div>
                 </div>
+
+                <div class="solution-section">
+                    <h3 class="solution-title">Item (e): $\sum_{n=1}^{\infty} \frac{1}{n(n+1)}$</h3>
+                    <div class="step"><div class="step-badge"></div><div class="step-title">Passo 1: Frações Parciais</div><div class="step-content">$\frac{1}{n(n+1)} = \frac{A}{n} + \frac{B}{n+1} \Rightarrow A=1, B=-1$.</div></div>
+                    <div class="step"><div class="step-badge"></div><div class="step-title">Passo 2: Termo Geral Modificado</div><div class="step-content">A série fica $\sum \left(\frac{1}{n} - \frac{1}{n+1}\right)$.</div></div>
+                    <div class="step"><div class="step-badge"></div><div class="step-title">Passo 3: Somas Parciais</div><div class="step-content">$S_N = (1 - 1/2) + (1/2 - 1/3) + \dots + (\frac{1}{N} - \frac{1}{N+1})$.</div></div>
+                    <div class="step"><div class="step-badge"></div><div class="step-title">Passo 4: Cancelamento Telescópico</div><div class="step-content">Sobram apenas o primeiro e o último: $S_N = 1 - \frac{1}{N+1}$.</div></div>
+                    <div class="step"><div class="step-badge"></div><div class="step-title">Passo 5: Limite Final</div><div class="step-content">$\lim_{N \to \infty} S_N = 1 - 0 = 1$. <strong>Soma = 1.</strong></div></div>
+                </div>
+
+                <div class="solution-section">
+                    <h3 class="solution-title">Item (f): $\sum_{n=2}^{\infty} \ln\left(1 - \frac{1}{n^2}\right)$</h3>
+                    <div class="step"><div class="step-badge"></div><div class="step-title">Passo 1: Manipulação Algébrica</div><div class="step-content">$1 - \frac{1}{n^2} = \frac{n^2-1}{n^2} = \frac{(n-1)(n+1)}{n \cdot n}$.</div></div>
+                    <div class="step"><div class="step-badge"></div><div class="step-title">Passo 2: Propriedade do Logaritmo</div><div class="step-content">$\ln\left(\frac{n-1}{n} \cdot \frac{n+1}{n}\right) = \ln(n-1) - \ln(n) + \ln(n+1) - \ln(n)$.</div></div>
+                    <div class="step"><div class="step-badge"></div><div class="step-title">Passo 3: Ajuste Telescópico</div><div class="step-content">Reagrupando: $(\ln(n-1) - \ln(n)) - (\ln(n) - \ln(n+1))$.</div></div>
+                    <div class="step"><div class="step-badge"></div><div class="step-title">Passo 4: Somas Parciais</div><div class="step-content">Ao somar de $n=2$ até $N$, os termos centrais se cancelam. Sobra o termo inicial em $n=2$ e os finais em $N$.</div></div>
+                    <div class="step"><div class="step-badge"></div><div class="step-title">Passo 5: Limite e Conclusão</div><div class="step-content">Avaliando os limites para $N \to \infty$, resulta em $\ln(1/2) = -\ln 2$. <strong>Soma = $-\ln 2$.</strong></div></div>
+                </div>
+
+                <div class="solution-section">
+                    <h3 class="solution-title">Item (g): $\sum_{n=1}^{\infty} \left( e^{1/n} - e^{1/(n+1)} \right)$</h3>
+                    <div class="step"><div class="step-badge"></div><div class="step-title">Passo 1: Identificação</div><div class="step-content">O formato já é uma subtração telescópica direta.</div></div>
+                    <div class="step"><div class="step-badge"></div><div class="step-title">Passo 2: Somas Parciais</div><div class="step-content">$S_N = (e^1 - e^{1/2}) + (e^{1/2} - e^{1/3}) + \dots + (e^{1/N} - e^{1/(N+1)})$.</div></div>
+                    <div class="step"><div class="step-badge"></div><div class="step-title">Passo 3: Cancelamento</div><div class="step-content">$S_N = e - e^{1/(N+1)}$.</div></div>
+                    <div class="step"><div class="step-badge"></div><div class="step-title">Passo 4: Aplicação do Limite</div><div class="step-content">$\lim_{N \to \infty} (e - e^{1/(N+1)}) = e - e^0$.</div></div>
+                    <div class="step"><div class="step-badge"></div><div class="step-title">Passo 5: Conclusão</div><div class="step-content">$e - 1$. <strong>Soma = $e - 1$.</strong></div></div>
+                </div>
             </div>
             
             <!-- Lista 5 - Ex 3 -->
             <div class="exercise-card">
                 <div class="exercise-header"><span class="exercise-tag">Lista 5, Ex 3</span><span class="exercise-title">Critérios de Convergência</span></div>
-                <div class="exercise-statement">Determine se convergem: (f) $\sum \frac{n+5}{\sqrt[3]{n^7 + n^2}}$</div>
+                <div class="exercise-statement">Determine se convergem: (f) $\sum \frac{n+5}{\sqrt[3]{n^7 + n^2}}$, (g) $\sum \frac{\cos^2(n)}{n^2}$, (h) $\sum \frac{n^2}{2^n}$, (i) $\sum \left(\frac{n}{n+1}\right)^{n^2}$</div>
                 <div class="info-box metodo">
                     <h4>Introdução Teórica: Critérios de Convergência</h4>
                     <p><strong>Objetivo:</strong> Descobrir se a soma infinita de uma série resulta em um número finito, sem necessariamente calcular o seu valor exato.</p>
@@ -317,6 +371,33 @@
                     <div class="step"><div class="step-badge"></div><div class="step-title">Passo 4: Análise da p-série</div><div class="step-content">A série comparativa é uma p-série $\sum \frac{1}{n^p}$ com $p = 4/3$.</div></div>
                     <div class="step"><div class="step-badge"></div><div class="step-title">Passo 5: Conclusão</div><div class="step-content">Como $p = 4/3 > 1$, a p-série converge. Pelo Teste de Comparação no Limite, a série original também <strong>converge</strong>.</div></div>
                 </div>
+
+                <div class="solution-section">
+                    <h3 class="solution-title">Item (g): $\sum \frac{\cos^2(n)}{n^2}$</h3>
+                    <div class="step"><div class="step-badge"></div><div class="step-title">Passo 1: Escolha do Teste</div><div class="step-content">A presença da função trigonométrica limitada sugere o Teste da Comparação Direta.</div></div>
+                    <div class="step"><div class="step-badge"></div><div class="step-title">Passo 2: Análise do Numerador</div><div class="step-content">Sabemos que $0 \le \cos^2(n) \le 1$ para todo $n$.</div></div>
+                    <div class="step"><div class="step-badge"></div><div class="step-title">Passo 3: Desigualdade</div><div class="step-content">Logo, $0 \le \frac{\cos^2(n)}{n^2} \le \frac{1}{n^2}$.</div></div>
+                    <div class="step"><div class="step-badge"></div><div class="step-title">Passo 4: Série Maior</div><div class="step-content">A série $\sum \frac{1}{n^2}$ é uma p-série com $p=2 > 1$, portanto converge.</div></div>
+                    <div class="step"><div class="step-badge"></div><div class="step-title">Passo 5: Conclusão</div><div class="step-content">Como a série maior converge, a série menor também <strong>converge</strong>.</div></div>
+                </div>
+
+                <div class="solution-section">
+                    <h3 class="solution-title">Item (h): $\sum \frac{n^2}{2^n}$</h3>
+                    <div class="step"><div class="step-badge"></div><div class="step-title">Passo 1: Escolha do Teste</div><div class="step-content">Série envolvendo misto de potências ($n^2$) e exponenciais ($2^n$) pede o Teste da Razão.</div></div>
+                    <div class="step"><div class="step-badge"></div><div class="step-title">Passo 2: Montagem do Limite</div><div class="step-content">$\lim_{n \to \infty} \left| \frac{a_{n+1}}{a_n} \right| = \lim \frac{(n+1)^2}{2^{n+1}} \cdot \frac{2^n}{n^2}$.</div></div>
+                    <div class="step"><div class="step-badge"></div><div class="step-title">Passo 3: Simplificação</div><div class="step-content">$\lim \frac{1}{2} \cdot \left(\frac{n+1}{n}\right)^2$.</div></div>
+                    <div class="step"><div class="step-badge"></div><div class="step-title">Passo 4: Resolução do Limite</div><div class="step-content">$\frac{1}{2} \cdot (1)^2 = \frac{1}{2}$.</div></div>
+                    <div class="step"><div class="step-badge"></div><div class="step-title">Passo 5: Conclusão</div><div class="step-content">Como $L = 1/2 < 1$, pelo Teste da Razão a série <strong>converge absolutamente</strong>.</div></div>
+                </div>
+
+                <div class="solution-section">
+                    <h3 class="solution-title">Item (i): $\sum \left(\frac{n}{n+1}\right)^{n^2}$</h3>
+                    <div class="step"><div class="step-badge"></div><div class="step-title">Passo 1: Escolha do Teste</div><div class="step-content">Termo geral elevado a uma potência que depende de $n$ sugere o Teste da Raiz.</div></div>
+                    <div class="step"><div class="step-badge"></div><div class="step-title">Passo 2: Montagem do Limite</div><div class="step-content">$L = \lim_{n \to \infty} \sqrt[n]{|a_n|} = \lim \left[ \left(\frac{n}{n+1}\right)^{n^2} \right]^{1/n}$.</div></div>
+                    <div class="step"><div class="step-badge"></div><div class="step-title">Passo 3: Simplificação</div><div class="step-content">$L = \lim \left(\frac{n}{n+1}\right)^n = \lim \left(\frac{1}{1+1/n}\right)^n$.</div></div>
+                    <div class="step"><div class="step-badge"></div><div class="step-title">Passo 4: Resolução com Exponencial</div><div class="step-content">$L = \frac{1}{\lim (1+1/n)^n} = \frac{1}{e}$.</div></div>
+                    <div class="step"><div class="step-badge"></div><div class="step-title">Passo 5: Conclusão</div><div class="step-content">Como $1/e \approx 0.36 < 1$, pelo Teste da Raiz a série <strong>converge</strong>.</div></div>
+                </div>
             </div>
         </section>
 
@@ -327,7 +408,7 @@
             
             <div class="exercise-card">
                 <div class="exercise-header"><span class="exercise-tag">Lista 6, Ex 1</span><span class="exercise-title">Raio e Intervalo de Convergência</span></div>
-                <div class="exercise-statement">Calcule raio e intervalo para: (e) $\sum_{n=1}^{\infty} \frac{3^n x^n}{(n+1)^2}$</div>
+                <div class="exercise-statement">Calcule raio e intervalo para: (e) $\sum_{n=1}^{\infty} \frac{3^n x^n}{(n+1)^2}$, (f) $\sum_{n=0}^{\infty} \frac{x^n}{n!}$, (g) $\sum_{n=1}^{\infty} \frac{(x-2)^n}{n 4^n}$, (h) $\sum_{n=0}^{\infty} n! x^n$</div>
                 <div class="info-box metodo">
                     <h4>Introdução Teórica: Séries de Potências</h4>
                     <p><strong>O que são:</strong> Uma série de potências é uma série com termos variáveis da forma $\sum c_n (x-a)^n$. Ela converge apenas para certos valores de $x$. O conjunto desses valores é o intervalo de convergência.</p>
@@ -341,11 +422,38 @@
                     <div class="step"><div class="step-badge"></div><div class="step-title">Passo 4: Verificação do Extremo $x = 1/3$</div><div class="step-content">Substituindo $x=1/3$, a série fica $\sum \frac{1}{(n+1)^2}$, que converge por ser p-série com $p=2 > 1$.</div></div>
                     <div class="step"><div class="step-badge"></div><div class="step-title">Passo 5: Verificação do Extremo $x = -1/3$</div><div class="step-content">Substituindo $x=-1/3$, fica $\sum \frac{(-1)^n}{(n+1)^2}$. Converge absolutamente. Logo o intervalo de convergência é <strong>$[-1/3, 1/3]$</strong>.</div></div>
                 </div>
+
+                <div class="solution-section">
+                    <h3 class="solution-title">Item (f): $\sum_{n=0}^{\infty} \frac{x^n}{n!}$</h3>
+                    <div class="step"><div class="step-badge"></div><div class="step-title">Passo 1: Teste da Razão</div><div class="step-content">$L = \lim \left| \frac{x^{n+1}}{(n+1)!} \cdot \frac{n!}{x^n} \right|$.</div></div>
+                    <div class="step"><div class="step-badge"></div><div class="step-title">Passo 2: Simplificação</div><div class="step-content">$L = \lim \left| \frac{x}{n+1} \right| = |x| \lim \frac{1}{n+1}$.</div></div>
+                    <div class="step"><div class="step-badge"></div><div class="step-title">Passo 3: Cálculo do Limite</div><div class="step-content">$L = |x| \cdot 0 = 0$.</div></div>
+                    <div class="step"><div class="step-badge"></div><div class="step-title">Passo 4: Raio</div><div class="step-content">Como $0 < 1$ para qualquer $x$, $R = \infty$.</div></div>
+                    <div class="step"><div class="step-badge"></div><div class="step-title">Passo 5: Intervalo</div><div class="step-content">Intervalo de convergência é <strong>$(-\infty, \infty)$</strong>.</div></div>
+                </div>
+
+                <div class="solution-section">
+                    <h3 class="solution-title">Item (g): $\sum_{n=1}^{\infty} \frac{(x-2)^n}{n 4^n}$</h3>
+                    <div class="step"><div class="step-badge"></div><div class="step-title">Passo 1: Teste da Razão</div><div class="step-content">$L = \lim \left| \frac{(x-2)^{n+1}}{(n+1)4^{n+1}} \cdot \frac{n 4^n}{(x-2)^n} \right|$.</div></div>
+                    <div class="step"><div class="step-badge"></div><div class="step-title">Passo 2: Simplificação</div><div class="step-content">$L = \frac{|x-2|}{4} \lim \frac{n}{n+1} = \frac{|x-2|}{4} \cdot 1$.</div></div>
+                    <div class="step"><div class="step-badge"></div><div class="step-title">Passo 3: Desigualdade</div><div class="step-content">Para convergir, $\frac{|x-2|}{4} < 1 \Rightarrow |x-2| < 4$. Raio $R = 4$.</div></div>
+                    <div class="step"><div class="step-badge"></div><div class="step-title">Passo 4: Extremos</div><div class="step-content">$x-2 \in (-4, 4) \Rightarrow x \in (-2, 6)$. Testando $x=-2$, temos $\sum \frac{(-4)^n}{n 4^n} = \sum \frac{(-1)^n}{n}$ (Série Harmônica Alternada, converge).</div></div>
+                    <div class="step"><div class="step-badge"></div><div class="step-title">Passo 5: Intervalo</div><div class="step-content">Testando $x=6$, temos $\sum \frac{4^n}{n 4^n} = \sum \frac{1}{n}$ (Série Harmônica, diverge). Intervalo: <strong>$[-2, 6)$</strong>.</div></div>
+                </div>
+
+                <div class="solution-section">
+                    <h3 class="solution-title">Item (h): $\sum_{n=0}^{\infty} n! x^n$</h3>
+                    <div class="step"><div class="step-badge"></div><div class="step-title">Passo 1: Teste da Razão</div><div class="step-content">$L = \lim \left| \frac{(n+1)! x^{n+1}}{n! x^n} \right|$.</div></div>
+                    <div class="step"><div class="step-badge"></div><div class="step-title">Passo 2: Simplificação</div><div class="step-content">$L = \lim \left| (n+1) x \right| = |x| \lim (n+1)$.</div></div>
+                    <div class="step"><div class="step-badge"></div><div class="step-title">Passo 3: Cálculo do Limite</div><div class="step-content">Se $x \neq 0$, o limite é $\infty$. Logo só converge se $x = 0$.</div></div>
+                    <div class="step"><div class="step-badge"></div><div class="step-title">Passo 4: Raio</div><div class="step-content">Raio de convergência $R = 0$.</div></div>
+                    <div class="step"><div class="step-badge"></div><div class="step-title">Passo 5: Intervalo</div><div class="step-content">A série converge apenas no ponto <strong>$x = 0$</strong>.</div></div>
+                </div>
             </div>
 
             <div class="exercise-card">
                 <div class="exercise-header"><span class="exercise-tag">Lista 6, Ex 6 e 8</span><span class="exercise-title">Séries de Maclaurin usando a Tabela</span></div>
-                <div class="exercise-statement">Ache as séries para $f(x) = \ln(1-x^2)$ e use para derivar conclusões.</div>
+                <div class="exercise-statement">Ache as séries de Maclaurin para: (a) $\ln(1-x^2)$, (b) $x^2 e^{-3x}$, (c) $\sin(x^2)$, (d) $\frac{1}{1+4x}$</div>
                 <div class="info-box metodo">
                     <h4>Introdução Teórica: Séries de Maclaurin</h4>
                     <p><strong>O que é:</strong> A Série de Maclaurin é a expansão da Série de Taylor de uma função ao redor do ponto $a = 0$. Ela permite representar funções complexas através de polinômios infinitos.</p>
@@ -359,6 +467,33 @@
                     <div class="step"><div class="step-badge"></div><div class="step-title">Passo 4: Agrupamento Algébrico</div><div class="step-content">$(-1)^{n-1} \cdot (-1)^n = (-1)^{2n-1} = -1$. Logo a série fica $-\sum_{n=1}^{\infty} \frac{x^{2n}}{n}$.</div></div>
                     <div class="step"><div class="step-badge"></div><div class="step-title">Passo 5: Conclusão do Intervalo</div><div class="step-content">A série de $\ln(1+u)$ converge para $u \in (-1, 1]$. Então $-1 < -x^2 \le 1 \Rightarrow x^2 < 1 \Rightarrow x \in (-1, 1)$.</div></div>
                 </div>
+
+                <div class="solution-section">
+                    <h3 class="solution-title">Item (b): $x^2 e^{-3x}$</h3>
+                    <div class="step"><div class="step-badge"></div><div class="step-title">Passo 1: Referência da Tabela</div><div class="step-content">Da tabela: $e^u = \sum_{n=0}^{\infty} \frac{u^n}{n!}$.</div></div>
+                    <div class="step"><div class="step-badge"></div><div class="step-title">Passo 2: Substituição de Variável</div><div class="step-content">Fazemos $u = -3x \Rightarrow e^{-3x} = \sum_{n=0}^{\infty} \frac{(-3x)^n}{n!}$.</div></div>
+                    <div class="step"><div class="step-badge"></div><div class="step-title">Passo 3: Expansão</div><div class="step-content">$e^{-3x} = \sum_{n=0}^{\infty} \frac{(-1)^n 3^n x^n}{n!}$.</div></div>
+                    <div class="step"><div class="step-badge"></div><div class="step-title">Passo 4: Multiplicação Externa</div><div class="step-content">Multiplicamos por $x^2$: $x^2 e^{-3x} = x^2 \sum_{n=0}^{\infty} \frac{(-1)^n 3^n x^n}{n!}$.</div></div>
+                    <div class="step"><div class="step-badge"></div><div class="step-title">Passo 5: Conclusão</div><div class="step-content">Inserindo $x^2$ na soma: <strong>$\sum_{n=0}^{\infty} \frac{(-1)^n 3^n x^{n+2}}{n!}$</strong> para $x \in \mathbb{R}$.</div></div>
+                </div>
+
+                <div class="solution-section">
+                    <h3 class="solution-title">Item (c): $\sin(x^2)$</h3>
+                    <div class="step"><div class="step-badge"></div><div class="step-title">Passo 1: Referência da Tabela</div><div class="step-content">Da tabela: $\sin(u) = \sum_{n=0}^{\infty} \frac{(-1)^n u^{2n+1}}{(2n+1)!}$.</div></div>
+                    <div class="step"><div class="step-badge"></div><div class="step-title">Passo 2: Substituição de Variável</div><div class="step-content">Fazemos $u = x^2 \Rightarrow \sin(x^2) = \sum_{n=0}^{\infty} \frac{(-1)^n (x^2)^{2n+1}}{(2n+1)!}$.</div></div>
+                    <div class="step"><div class="step-badge"></div><div class="step-title">Passo 3: Propriedade de Potência</div><div class="step-content">$(x^2)^{2n+1} = x^{4n+2}$.</div></div>
+                    <div class="step"><div class="step-badge"></div><div class="step-title">Passo 4: Simplificação Final</div><div class="step-content">A série fica <strong>$\sum_{n=0}^{\infty} \frac{(-1)^n x^{4n+2}}{(2n+1)!}$</strong>.</div></div>
+                    <div class="step"><div class="step-badge"></div><div class="step-title">Passo 5: Convergência</div><div class="step-content">O intervalo original do seno é infinito, logo converge para <strong>$x \in (-\infty, \infty)$</strong>.</div></div>
+                </div>
+
+                <div class="solution-section">
+                    <h3 class="solution-title">Item (d): $\frac{1}{1+4x}$</h3>
+                    <div class="step"><div class="step-badge"></div><div class="step-title">Passo 1: Referência da Tabela</div><div class="step-content">Tabela (Série Geométrica): $\frac{1}{1-u} = \sum_{n=0}^{\infty} u^n$.</div></div>
+                    <div class="step"><div class="step-badge"></div><div class="step-title">Passo 2: Ajuste de Sinal</div><div class="step-content">Reescrevemos como $\frac{1}{1 - (-4x)}$.</div></div>
+                    <div class="step"><div class="step-badge"></div><div class="step-title">Passo 3: Substituição de Variável</div><div class="step-content">Fazemos $u = -4x \Rightarrow \sum_{n=0}^{\infty} (-4x)^n$.</div></div>
+                    <div class="step"><div class="step-badge"></div><div class="step-title">Passo 4: Expansão</div><div class="step-content">A série fica <strong>$\sum_{n=0}^{\infty} (-1)^n 4^n x^n$</strong>.</div></div>
+                    <div class="step"><div class="step-badge"></div><div class="step-title">Passo 5: Convergência</div><div class="step-content">Converge se $|-4x| < 1 \Rightarrow |x| < 1/4$. Intervalo: <strong>$(-1/4, 1/4)$</strong>.</div></div>
+                </div>
             </div>
         </section>
 
@@ -367,7 +502,7 @@
             <h2 class="section-title">Lista 7: Solução de EDOs em Série</h2>
             <div class="exercise-card">
                 <div class="exercise-header"><span class="exercise-tag">Lista 7, Ex 1</span><span class="exercise-title">Soluções em Série no ponto ordinário</span></div>
-                <div class="exercise-statement">Determine a série em potências de $x$ para $y'' - xy' - y = 0$.</div>
+                <div class="exercise-statement">Determine a série em potências de $x$ para as EDOs: (a) $y'' - xy' - y = 0$, (b) $y'' + y = 0$, (c) $y'' - x^2 y = 0$, (d) $(1-x^2)y'' - 2xy' + 2y = 0$</div>
                 <div class="info-box metodo">
                     <h4>Introdução Teórica: Solução de EDOs por Séries</h4>
                     <p><strong>O Problema:</strong> Muitas Equações Diferenciais Ordinárias (EDOs) não possuem soluções analíticas expressáveis por funções elementares. Recorremos então às séries de potências ao redor de um ponto ordinário $x_0$ (onde as funções multiplicadoras de $y''$ não zeram).</p>
@@ -380,6 +515,33 @@
                     <div class="step"><div class="step-badge"></div><div class="step-title">Passo 4: Relação de Recorrência</div><div class="step-content">Igualando o coeficiente geral a zero: $(n+2)(n+1)c_{n+2} - n c_n - c_n = 0 \Rightarrow c_{n+2} = \frac{c_n}{n+2}$.</div></div>
                     <div class="step"><div class="step-badge"></div><div class="step-title">Passo 5: Geração dos Termos</div><div class="step-content">Para $c_0$, teremos a série $y_1$. Para $c_1$, $y_2$. Logo, $y(x) = c_0(1 + \frac{x^2}{2} + \frac{x^4}{8} + \dots) + c_1(x + \frac{x^3}{3} + \frac{x^5}{15} + \dots)$.</div></div>
                 </div>
+
+                <div class="solution-section">
+                    <h3 class="solution-title">Item (b): $y'' + y = 0$</h3>
+                    <div class="step"><div class="step-badge"></div><div class="step-title">Passo 1: Solução em Série</div><div class="step-content">Assumimos $y = \sum c_n x^n$. Derivando, $y'' = \sum_{n=2}^{\infty} n(n-1)c_n x^{n-2}$.</div></div>
+                    <div class="step"><div class="step-badge"></div><div class="step-title">Passo 2: Substituição</div><div class="step-content">$\sum_{n=2}^{\infty} n(n-1)c_n x^{n-2} + \sum_{n=0}^{\infty} c_n x^n = 0$.</div></div>
+                    <div class="step"><div class="step-badge"></div><div class="step-title">Passo 3: Shift de Índice</div><div class="step-content">Fazendo $k = n-2$ no primeiro termo: $\sum_{k=0}^{\infty} (k+2)(k+1)c_{k+2} x^k + \sum_{k=0}^{\infty} c_k x^k = 0$.</div></div>
+                    <div class="step"><div class="step-badge"></div><div class="step-title">Passo 4: Relação de Recorrência</div><div class="step-content">$(n+2)(n+1)c_{n+2} + c_n = 0 \Rightarrow c_{n+2} = \frac{-c_n}{(n+2)(n+1)}$.</div></div>
+                    <div class="step"><div class="step-badge"></div><div class="step-title">Passo 5: Conclusão</div><div class="step-content">A recorrência separa coeficientes pares (cos) e ímpares (sen). $y(x) = c_0 \cos(x) + c_1 \sin(x)$.</div></div>
+                </div>
+
+                <div class="solution-section">
+                    <h3 class="solution-title">Item (c): $y'' - x^2 y = 0$</h3>
+                    <div class="step"><div class="step-badge"></div><div class="step-title">Passo 1: Solução em Série</div><div class="step-content">Substituímos $y = \sum c_n x^n$ e $y'' = \sum n(n-1)c_n x^{n-2}$.</div></div>
+                    <div class="step"><div class="step-badge"></div><div class="step-title">Passo 2: EDO com Série</div><div class="step-content">$\sum_{n=2}^{\infty} n(n-1)c_n x^{n-2} - \sum_{n=0}^{\infty} c_n x^{n+2} = 0$.</div></div>
+                    <div class="step"><div class="step-badge"></div><div class="step-title">Passo 3: Equalização das Potências</div><div class="step-content">Shift no primeiro termo para $x^{n+2}$ não é direto, usamos $k$. Deixando tudo em $x^k$: $\sum (k+2)(k+1)c_{k+2} x^k - \sum c_{k-2} x^k = 0$.</div></div>
+                    <div class="step"><div class="step-badge"></div><div class="step-title">Passo 4: Relação de Recorrência</div><div class="step-content">Coeficientes iniciais: $c_2 = c_3 = 0$. Recorrência geral para $n \ge 2$: $c_{n+2} = \frac{c_{n-2}}{(n+2)(n+1)}$.</div></div>
+                    <div class="step"><div class="step-badge"></div><div class="step-title">Passo 5: Conclusão</div><div class="step-content">O salto é de 4 em 4 termos. Logo, séries não nulas começam em $c_0, c_4, c_8$ e $c_1, c_5, c_9$.</div></div>
+                </div>
+
+                <div class="solution-section">
+                    <h3 class="solution-title">Item (d): $(1-x^2)y'' - 2xy' + 2y = 0$</h3>
+                    <div class="step"><div class="step-badge"></div><div class="step-title">Passo 1: Expansão da EDO</div><div class="step-content">A EDO vira $y'' - x^2 y'' - 2xy' + 2y = 0$.</div></div>
+                    <div class="step"><div class="step-badge"></div><div class="step-title">Passo 2: Substituição das Séries</div><div class="step-content">As somas são: $\sum n(n-1)c_n x^{n-2} - \sum n(n-1)c_n x^n - \sum 2n c_n x^n + \sum 2c_n x^n = 0$.</div></div>
+                    <div class="step"><div class="step-badge"></div><div class="step-title">Passo 3: Shift e Agrupamento</div><div class="step-content">$\sum (n+2)(n+1)c_{n+2} x^n - \sum [n(n-1) + 2n - 2] c_n x^n = 0$.</div></div>
+                    <div class="step"><div class="step-badge"></div><div class="step-title">Passo 4: Relação de Recorrência</div><div class="step-content">$(n+2)(n+1)c_{n+2} = (n^2+n-2)c_n \Rightarrow c_{n+2} = \frac{(n-1)(n+2)}{(n+1)(n+2)} c_n = \frac{n-1}{n+1} c_n$.</div></div>
+                    <div class="step"><div class="step-badge"></div><div class="step-title">Passo 5: Conclusão Polinomial</div><div class="step-content">Para $n=1$, $c_3 = 0 \cdot c_1 = 0$, logo todos os termos ímpares seguintes zeram. $y = c_1 x$ é uma solução polinomial exata (Polinômio de Legendre).</div></div>
+                </div>
             </div>
         </section>
 
@@ -388,18 +550,58 @@
             <h2 class="section-title">Trabalho Extra: Método de Frobenius</h2>
             <div class="exercise-card">
                 <div class="exercise-header"><span class="exercise-tag">P3 e Extra</span><span class="exercise-title">Singularidades Regulares</span></div>
-                <div class="exercise-statement">Resolva por Frobenius $9x^2 y'' + 9x^2 y' + 2y = 0$.</div>
+                <div class="exercise-statement">Resolva por Frobenius, mostrando CADA derivada e substituição com o máximo de detalhes possível: (a) $9x^2 y'' + 9x^2 y' + 2y = 0$, (b) $2x^2 y'' - xy' + (1+x)y = 0$.</div>
                 <div class="info-box metodo">
                     <h4>Introdução Teórica: O Método de Frobenius</h4>
                     <p><strong>Contexto:</strong> Quando tentamos expandir a solução de uma EDO em torno de um ponto onde a equação "quebra" (Ponto Singular), o método de séries comum falha. Se os limites envolvendo o ponto singular existirem e forem finitos (Singularidade Regular), o Método de Frobenius entra em ação.</p>
                     <p><strong>Teorema:</strong> A solução assume a forma modificada $y(x) = \sum c_n x^{n+r}$. O principal objetivo inicial é resolver a <strong>Equação Indicial</strong> para descobrir os valores de $r$ (as raízes indiciais). Dependendo da diferença entre as raízes (se é inteira ou não), o formato final da segunda solução linearmente independente se altera. Após obter os valores de $r$, calculamos as relações de recorrência normalmente.</p>
                 </div>
                 <div class="solution-section">
-                    <div class="step"><div class="step-badge"></div><div class="step-title">Passo 1: Verificação de Ponto Singular Regular</div><div class="step-content">Em $x=0$, $P(x)=9x^2=0$. O ponto é singular. Calculando os limites, $p_0 = 0$ e $q_0 = 2/9$, finitos. Ponto regular.</div></div>
-                    <div class="step"><div class="step-badge"></div><div class="step-title">Passo 2: Equação Indicial</div><div class="step-content">A equação indicial é $r(r-1) + p_0 r + q_0 = 0 \Rightarrow r(r-1) + 2/9 = 0 \Rightarrow r^2 - r + 2/9 = 0$.</div></div>
-                    <div class="step"><div class="step-badge"></div><div class="step-title">Passo 3: Raízes (r1 e r2)</div><div class="step-content">Resolvendo a quadrática, as raízes indiciais são $r_1 = 2/3$ e $r_2 = 1/3$. Como não diferem por inteiro, teremos duas soluções de Frobenius.</div></div>
-                    <div class="step"><div class="step-badge"></div><div class="step-title">Passo 4: Relação de Recorrência (Frobenius)</div><div class="step-content">Admitindo $y = \sum c_n x^{n+r}$, ao substituir obtemos: $c_n = \frac{-c_{n-1}}{(n+r-1/3)(n+r-2/3)}$.</div></div>
-                    <div class="step"><div class="step-badge"></div><div class="step-title">Passo 5: Solução Geral</div><div class="step-content">Substituindo os $r$ e extraindo $c_n$, $y(x) = C_1 x^{2/3} (1 - x + \frac{1}{4}x^2 \dots) + C_2 x^{1/3} (1 - x + \frac{1}{2}x^2 \dots)$.</div></div>
+                    <h3 class="solution-title">Item (a): $9x^2 y'' + 9x^2 y' + 2y = 0$</h3>
+                    <div class="step"><div class="step-badge"></div><div class="step-title">Passo 1: Classificação do Ponto Singular $x=0$</div><div class="step-content">A equação normalizada é $y'' + p(x)y' + q(x)y = 0$, onde $p(x) = \frac{9x^2}{9x^2} = 1$ e $q(x) = \frac{2}{9x^2}$. <br>O ponto $x=0$ é singular pois $P(0) = 0$. Calculamos os limites: <br>$p_0 = \lim_{x\to0} x \cdot 1 = 0$ e $q_0 = \lim_{x\to0} x^2 \cdot \frac{2}{9x^2} = \frac{2}{9}$. Como são finitos, é um Ponto Singular Regular.</div></div>
+                    
+                    <div class="step"><div class="step-badge"></div><div class="step-title">Passo 2: Equação Indicial e Raízes</div><div class="step-content">A equação indicial é $r(r-1) + p_0 r + q_0 = 0$. Substituindo: <br>$r(r-1) + 0\cdot r + \frac{2}{9} = 0 \Rightarrow r^2 - r + \frac{2}{9} = 0$. <br>Multiplicando por 9: $9r^2 - 9r + 2 = 0$. Resolvendo por Bhaskara: <br>$\Delta = (-9)^2 - 4(9)(2) = 81 - 72 = 9$. <br>$r = \frac{9 \pm 3}{18} \Rightarrow r_1 = \frac{12}{18} = \frac{2}{3}$ e $r_2 = \frac{6}{18} = \frac{1}{3}$. <br>A diferença $r_1 - r_2 = \frac{1}{3}$ não é um número inteiro, garantindo duas soluções distintas do tipo Frobenius.</div></div>
+                    
+                    <div class="step"><div class="step-badge"></div><div class="step-title">Passo 3: Expansão das Séries e Derivadas</div><div class="step-content">Admitimos a solução geral de Frobenius: <br>$y = \sum_{n=0}^{\infty} c_n x^{n+r}$. <br>Derivamos termo a termo: <br>$y' = \sum_{n=0}^{\infty} (n+r) c_n x^{n+r-1}$. <br>$y'' = \sum_{n=0}^{\infty} (n+r)(n+r-1) c_n x^{n+r-2}$.</div></div>
+                    
+                    <div class="step"><div class="step-badge"></div><div class="step-title">Passo 4: Substituição Exaustiva na EDO</div><div class="step-content">Substituindo na EDO original $9x^2 y'' + 9x^2 y' + 2y = 0$: <br>$9x^2 \left( \sum_{n=0}^{\infty} (n+r)(n+r-1) c_n x^{n+r-2} \right) + 9x^2 \left( \sum_{n=0}^{\infty} (n+r) c_n x^{n+r-1} \right) + 2 \left( \sum_{n=0}^{\infty} c_n x^{n+r} \right) = 0$. <br>Absorvendo os $x^2$: <br>$\sum_{n=0}^{\infty} 9(n+r)(n+r-1) c_n x^{n+r} + \sum_{n=0}^{\infty} 9(n+r) c_n x^{n+r+1} + \sum_{n=0}^{\infty} 2 c_n x^{n+r} = 0$.</div></div>
+                    
+                    <div class="step"><div class="step-badge"></div><div class="step-title">Passo 5: Agrupamento de Potências Comuns</div><div class="step-content">Agrupando os termos que já possuem $x^{n+r}$: <br>$\sum_{n=0}^{\infty} [9(n+r)(n+r-1) + 2] c_n x^{n+r} + \sum_{n=0}^{\infty} 9(n+r) c_n x^{n+r+1} = 0$. <br>Note que $9(n+r)(n+r-1) + 2 = 9(n+r)^2 - 9(n+r) + 2$.</div></div>
+                    
+                    <div class="step"><div class="step-badge"></div><div class="step-title">Passo 6: Shift de Índices (Mudança de Variável $k$)</div><div class="step-content">No segundo somatório, fazemos $k = n+1 \Rightarrow n = k-1$. Quando $n=0$, $k=1$. <br>Fica: $\sum_{k=1}^{\infty} 9(k+r-1) c_{k-1} x^{k+r}$. <br>No primeiro somatório, apenas renomeamos $n$ para $k$: <br>$\sum_{k=0}^{\infty} [9(k+r)^2 - 9(k+r) + 2] c_k x^{k+r}$.</div></div>
+                    
+                    <div class="step"><div class="step-badge"></div><div class="step-title">Passo 7: Extração do Coeficiente para $k=0$</div><div class="step-content">Para $k=0$, apenas o primeiro somatório contribui. Obtemos: <br>$[9r^2 - 9r + 2] c_0 = 0$. <br>Como $c_0 \neq 0$, isso nos dá a mesma equação indicial $9r^2 - 9r + 2 = 0$, validando nossos passos iniciais.</div></div>
+                    
+                    <div class="step"><div class="step-badge"></div><div class="step-title">Passo 8: Relação de Recorrência Geral ($k \ge 1$)</div><div class="step-content">Somando os termos para $k \ge 1$ e igualando a zero: <br>$[9(k+r)^2 - 9(k+r) + 2] c_k + 9(k+r-1) c_{k-1} = 0$. <br>Isolando $c_k$: <br>$c_k = \frac{-9(k+r-1)}{9(k+r)^2 - 9(k+r) + 2} c_{k-1}$. <br>Como o denominador é a indicial em $(k+r)$, podemos fatorar como $9(k+r-1/3)(k+r-2/3)$. <br>Assim, $c_k = \frac{-(k+r-1)}{(k+r-1/3)(k+r-2/3)} c_{k-1}$.</div></div>
+
+                    <div class="step"><div class="step-badge"></div><div class="step-title">Passo 9: Geração de Termos para $r_1 = 2/3$</div><div class="step-content">Substituímos $r = 2/3$ na relação: <br>$c_k = \frac{-(k+2/3-1)}{(k+2/3-1/3)(k+2/3-2/3)} c_{k-1} = \frac{-(k-1/3)}{(k+1/3)k} c_{k-1}$. <br>Para $k=1$: $c_1 = \frac{-(1-1/3)}{(1+1/3)\cdot 1} c_0 = \frac{-2/3}{4/3} c_0 = -\frac{1}{2} c_0$. <br>Para $k=2$: $c_2 = \frac{-(2-1/3)}{(2+1/3)\cdot 2} c_1 = \frac{-5/3}{14/3} c_1 = -\frac{5}{14} \left(-\frac{1}{2} c_0\right) = \frac{5}{28} c_0$. <br>Solução 1: $y_1(x) = c_0 x^{2/3} \left( 1 - \frac{1}{2}x + \frac{5}{28}x^2 + \dots \right)$.</div></div>
+
+                    <div class="step"><div class="step-badge"></div><div class="step-title">Passo 10: Geração de Termos para $r_2 = 1/3$</div><div class="step-content">Substituímos $r = 1/3$ na relação: <br>$c_k = \frac{-(k+1/3-1)}{(k+1/3-1/3)(k+1/3-2/3)} c_{k-1} = \frac{-(k-2/3)}{k(k-1/3)} c_{k-1}$. <br>Para $k=1$: $c_1 = \frac{-(1-2/3)}{1(1-1/3)} c_0 = \frac{-1/3}{2/3} c_0 = -\frac{1}{2} c_0$. <br>Para $k=2$: $c_2 = \frac{-(2-2/3)}{2(2-1/3)} c_1 = \frac{-4/3}{10/3} c_1 = -\frac{2}{5} \left(-\frac{1}{2} c_0\right) = \frac{1}{5} c_0$. <br>Solução 2: $y_2(x) = c_0 x^{1/3} \left( 1 - \frac{1}{2}x + \frac{1}{5}x^2 + \dots \right)$.</div></div>
+
+                    <div class="step"><div class="step-badge"></div><div class="step-title">Passo 11: Solução Geral Final</div><div class="step-content">A solução final é a combinação linear das soluções particulares encontradas: <br>$y(x) = C_1 x^{2/3} \left( 1 - \frac{1}{2}x + \frac{5}{28}x^2 + \dots \right) + C_2 x^{1/3} \left( 1 - \frac{1}{2}x + \frac{1}{5}x^2 + \dots \right)$.</div></div>
+                </div>
+
+                <div class="solution-section">
+                    <h3 class="solution-title">Item (b): $2x^2 y'' - xy' + (1+x)y = 0$</h3>
+                    <div class="step"><div class="step-badge"></div><div class="step-title">Passo 1: Classificação do Ponto Singular $x=0$</div><div class="step-content">Normalizando: $p(x) = \frac{-x}{2x^2} = -\frac{1}{2x}$ e $q(x) = \frac{1+x}{2x^2}$. <br>O ponto $x=0$ é singular. Limites: <br>$p_0 = \lim_{x\to0} x \left(-\frac{1}{2x}\right) = -\frac{1}{2}$ e $q_0 = \lim_{x\to0} x^2 \left(\frac{1+x}{2x^2}\right) = \frac{1}{2}$. <br>Ambos finitos, portanto Ponto Singular Regular.</div></div>
+                    
+                    <div class="step"><div class="step-badge"></div><div class="step-title">Passo 2: Equação Indicial e Raízes</div><div class="step-content">Equação indicial: $r(r-1) + p_0 r + q_0 = 0$. <br>$r(r-1) - \frac{1}{2} r + \frac{1}{2} = 0 \Rightarrow r^2 - \frac{3}{2}r + \frac{1}{2} = 0$. <br>Multiplicando por 2: $2r^2 - 3r + 1 = 0$. <br>Raízes: $r_1 = 1$ e $r_2 = 1/2$. A diferença é $1/2$ (não inteira).</div></div>
+                    
+                    <div class="step"><div class="step-badge"></div><div class="step-title">Passo 3: Expansão e Derivadas de Frobenius</div><div class="step-content">Utilizamos $y = \sum_{n=0}^{\infty} c_n x^{n+r}$. <br>Derivadas: $y' = \sum_{n=0}^{\infty} (n+r) c_n x^{n+r-1}$ e $y'' = \sum_{n=0}^{\infty} (n+r)(n+r-1) c_n x^{n+r-2}$.</div></div>
+                    
+                    <div class="step"><div class="step-badge"></div><div class="step-title">Passo 4: Substituição Exaustiva</div><div class="step-content">Substituímos na EDO $2x^2 y'' - xy' + y + xy = 0$: <br>$2x^2 \left(\sum (n+r)(n+r-1) c_n x^{n+r-2}\right) - x \left(\sum (n+r) c_n x^{n+r-1}\right) + \sum c_n x^{n+r} + x \sum c_n x^{n+r} = 0$. <br>Simplificando os expoentes: <br>$\sum 2(n+r)(n+r-1) c_n x^{n+r} - \sum (n+r) c_n x^{n+r} + \sum c_n x^{n+r} + \sum c_n x^{n+r+1} = 0$.</div></div>
+                    
+                    <div class="step"><div class="step-badge"></div><div class="step-title">Passo 5: Agrupamento em Potências $x^{n+r}$</div><div class="step-content">Agrupando os três primeiros termos: <br>$\sum_{n=0}^{\infty} [2(n+r)(n+r-1) - (n+r) + 1] c_n x^{n+r} + \sum_{n=0}^{\infty} c_n x^{n+r+1} = 0$. <br>O polinômio característico é $2(n+r)^2 - 2(n+r) - (n+r) + 1 = 2(n+r)^2 - 3(n+r) + 1$. <br>Que pode ser fatorado como: $(2(n+r)-1)(n+r-1)$.</div></div>
+                    
+                    <div class="step"><div class="step-badge"></div><div class="step-title">Passo 6: Shift de Índices ($k$)</div><div class="step-content">No segundo somatório (o com $+1$), fazemos $k = n+1 \Rightarrow n = k-1$. Começa em $k=1$: $\sum_{k=1}^{\infty} c_{k-1} x^{k+r}$. <br>No primeiro, trocamos $n$ por $k$ ($k \ge 0$): <br>$\sum_{k=0}^{\infty} (2(k+r)-1)(k+r-1) c_k x^{k+r}$.</div></div>
+                    
+                    <div class="step"><div class="step-badge"></div><div class="step-title">Passo 7: Relação de Recorrência Geral</div><div class="step-content">Para $k=0$, garantimos a equação indicial. Para $k \ge 1$: <br>$(2(k+r)-1)(k+r-1) c_k + c_{k-1} = 0$. <br>Isolando $c_k$, obtemos a relação: <br>$c_k = \frac{-1}{(2(k+r)-1)(k+r-1)} c_{k-1}$.</div></div>
+
+                    <div class="step"><div class="step-badge"></div><div class="step-title">Passo 8: Geração de Termos para $r_1 = 1$</div><div class="step-content">Substituímos $r = 1$: <br>$c_k = \frac{-1}{(2(k+1)-1)(k+1-1)} c_{k-1} = \frac{-1}{(2k+1)k} c_{k-1}$. <br>Para $k=1$: $c_1 = \frac{-1}{3\cdot1} c_0 = -\frac{1}{3} c_0$. <br>Para $k=2$: $c_2 = \frac{-1}{5\cdot2} c_1 = -\frac{1}{10} \left(-\frac{1}{3} c_0\right) = \frac{1}{30} c_0$. <br>Para $k=3$: $c_3 = \frac{-1}{7\cdot3} c_2 = -\frac{1}{21} \left(\frac{1}{30} c_0\right) = -\frac{1}{630} c_0$. <br>Solução 1: $y_1(x) = c_0 x \left( 1 - \frac{1}{3}x + \frac{1}{30}x^2 - \frac{1}{630}x^3 + \dots \right)$.</div></div>
+
+                    <div class="step"><div class="step-badge"></div><div class="step-title">Passo 9: Geração de Termos para $r_2 = 1/2$</div><div class="step-content">Substituímos $r = 1/2$: <br>$c_k = \frac{-1}{(2(k+1/2)-1)(k+1/2-1)} c_{k-1} = \frac{-1}{2k(k-1/2)} c_{k-1} = \frac{-1}{k(2k-1)} c_{k-1}$. <br>Para $k=1$: $c_1 = \frac{-1}{1(1)} c_0 = -c_0$. <br>Para $k=2$: $c_2 = \frac{-1}{2(3)} c_1 = -\frac{1}{6}(-c_0) = \frac{1}{6} c_0$. <br>Para $k=3$: $c_3 = \frac{-1}{3(5)} c_2 = -\frac{1}{15}\left(\frac{1}{6}c_0\right) = -\frac{1}{90} c_0$. <br>Solução 2: $y_2(x) = c_0 \sqrt{x} \left( 1 - x + \frac{1}{6}x^2 - \frac{1}{90}x^3 + \dots \right)$.</div></div>
+
+                    <div class="step"><div class="step-badge"></div><div class="step-title">Passo 10: Solução Geral Final</div><div class="step-content">A solução da EDO é a combinação: <br>$y(x) = C_1 x \left( 1 - \frac{1}{3}x + \frac{1}{30}x^2 \dots \right) + C_2 \sqrt{x} \left( 1 - x + \frac{1}{6}x^2 \dots \right)$.</div></div>
                 </div>
             </div>
         </section>
