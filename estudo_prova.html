@@ -241,6 +241,11 @@
             <div class="exercise-card">
                 <div class="exercise-header"><span class="exercise-tag">Lista 5, Ex 1</span><span class="exercise-title">Limites de Sequências</span></div>
                 <div class="exercise-statement">Calcule o limite $\lim_{n \to \infty} a_n$ para as sequências: (c) $a_n = \frac{7 - 4n^2}{3 + 2n^2}$, (h) $a_n = n^2 \sin(1/n)$, (i) $a_n = \sqrt{n+1} - \sqrt{n}$</div>
+                <div class="info-box metodo">
+                    <h4>Introdução Teórica: Limites de Sequências</h4>
+                    <p><strong>O que é:</strong> Uma sequência numérica é uma lista ordenada de números. O estudo de limites de sequências visa entender o comportamento do termo geral $a_n$ à medida que $n$ cresce para o infinito.</p>
+                    <p><strong>Objetivo e Teoremas:</strong> O objetivo é verificar se a sequência converge (tende a um número finito) ou diverge (tende ao infinito ou oscila). Utilizamos técnicas como manipulação algébrica (fatorar o termo de maior grau), limites fundamentais e mudanças de variável contínua para levantar indeterminações (como $\frac{\infty}{\infty}$ ou $\infty \cdot 0$).</p>
+                </div>
 
                 <div class="solution-section">
                     <h3 class="solution-title">Item (c): $a_n = \frac{7 - 4n^2}{3 + 2n^2}$</h3>
@@ -266,6 +271,11 @@
             <div class="exercise-card">
                 <div class="exercise-header"><span class="exercise-tag">Lista 5, Ex 2</span><span class="exercise-title">Soma de Séries Telescópicas</span></div>
                 <div class="exercise-statement">Calcule a soma da série: (d) $\sum_{n=1}^{\infty} \frac{1}{n(n+2)}$</div>
+                <div class="info-box metodo">
+                    <h4>Introdução Teórica: Séries Telescópicas</h4>
+                    <p><strong>O que são:</strong> São séries cuja soma parcial $S_N$ possui termos que se cancelam em cascata (cancelamento telescópico), restando apenas os primeiros e os últimos termos da soma.</p>
+                    <p><strong>Método de Resolução:</strong> Para transformar uma fração complexa em uma subtração que se cancela, utilizamos a decomposição em <strong>Frações Parciais</strong>. Após abrir os primeiros termos e verificar o padrão de cancelamento, aplicamos o limite $\lim_{N \to \infty} S_N$ na fórmula simplificada da soma parcial para achar o valor exato da série convergente.</p>
+                </div>
                 
                 <div class="solution-section">
                     <h3 class="solution-title">Item (d)</h3>
@@ -281,6 +291,11 @@
             <div class="exercise-card">
                 <div class="exercise-header"><span class="exercise-tag">Lista 5, Ex 3</span><span class="exercise-title">Critérios de Convergência</span></div>
                 <div class="exercise-statement">Determine se convergem: (f) $\sum \frac{n+5}{\sqrt[3]{n^7 + n^2}}$</div>
+                <div class="info-box metodo">
+                    <h4>Introdução Teórica: Critérios de Convergência</h4>
+                    <p><strong>Objetivo:</strong> Descobrir se a soma infinita de uma série resulta em um número finito, sem necessariamente calcular o seu valor exato.</p>
+                    <p><strong>Teorema Utilizado (Comparação no Limite):</strong> Para polinômios fracionários ou expressões com raízes, observamos o termo de maior grau (o que domina o crescimento assintótico). Criamos uma série comparativa simples $b_n$ (geralmente uma p-série $\sum \frac{1}{n^p}$) e calculamos $\lim \frac{a_n}{b_n}$. Se o limite for finito e positivo, ambas as séries possuem o mesmo comportamento de convergência.</p>
+                </div>
                 
                 <div class="solution-section">
                     <h3 class="solution-title">Item (f)</h3>
@@ -301,6 +316,11 @@
             <div class="exercise-card">
                 <div class="exercise-header"><span class="exercise-tag">Lista 6, Ex 1</span><span class="exercise-title">Raio e Intervalo de Convergência</span></div>
                 <div class="exercise-statement">Calcule raio e intervalo para: (e) $\sum_{n=1}^{\infty} \frac{3^n x^n}{(n+1)^2}$</div>
+                <div class="info-box metodo">
+                    <h4>Introdução Teórica: Séries de Potências</h4>
+                    <p><strong>O que são:</strong> Uma série de potências é uma série com termos variáveis da forma $\sum c_n (x-a)^n$. Ela converge apenas para certos valores de $x$. O conjunto desses valores é o intervalo de convergência.</p>
+                    <p><strong>Método de Resolução:</strong> Aplicamos o <strong>Teste da Razão</strong> avaliando $\lim \left| \frac{a_{n+1}}{a_n} \right| < 1$ para descobrir o raio de convergência $R$. O passo crucial neste tipo de exercício é que o Teste da Razão não decide nada nas bordas ($=1$), portanto, <strong>os pontos extremos do intervalo devem ser sempre testados manualmente</strong> na série original.</p>
+                </div>
                 <div class="solution-section">
                     <h3 class="solution-title">Item (e)</h3>
                     <div class="step"><div class="step-badge"></div><div class="step-title">Passo 1: Aplicação do Teste da Razão</div><div class="step-content">Calculamos $L = \lim_{n\to\infty} \left| \frac{a_{n+1}}{a_n} \right| = \lim_{n\to\infty} \left| \frac{3^{n+1} x^{n+1}}{(n+2)^2} \cdot \frac{(n+1)^2}{3^n x^n} \right|$.</div></div>
@@ -314,6 +334,11 @@
             <div class="exercise-card">
                 <div class="exercise-header"><span class="exercise-tag">Lista 6, Ex 6 e 8</span><span class="exercise-title">Séries de Maclaurin usando a Tabela</span></div>
                 <div class="exercise-statement">Ache as séries para $f(x) = \ln(1-x^2)$ e use para derivar conclusões.</div>
+                <div class="info-box metodo">
+                    <h4>Introdução Teórica: Séries de Maclaurin</h4>
+                    <p><strong>O que é:</strong> A Série de Maclaurin é a expansão da Série de Taylor de uma função ao redor do ponto $a = 0$. Ela permite representar funções complexas através de polinômios infinitos.</p>
+                    <p><strong>Técnica de Otimização:</strong> Em vez de calcular derivadas infinitas de funções compostas (como $\ln(1-x^2)$), utilizamos Séries Notáveis já conhecidas (da nossa Tabela de Maclaurin). O objetivo é manipular algebricamente a função e fazer uma <strong>mudança de variável</strong> direta na série base, preservando o intervalo de convergência adaptado.</p>
+                </div>
                 <div class="solution-section">
                     <div class="info-box tabela"><h4>[REFERÊNCIA]</h4><p>Consultando a aba de Tabelas, sabemos que $\ln(1+u) = \sum_{n=1}^{\infty} (-1)^{n-1} \frac{u^n}{n}$.</p></div>
                     <div class="step"><div class="step-badge"></div><div class="step-title">Passo 1: Substituição de Variável</div><div class="step-content">Fazemos $u = -x^2$. A expressão vira $\ln(1 - x^2)$.</div></div>
@@ -331,6 +356,11 @@
             <div class="exercise-card">
                 <div class="exercise-header"><span class="exercise-tag">Lista 7, Ex 1</span><span class="exercise-title">Soluções em Série no ponto ordinário</span></div>
                 <div class="exercise-statement">Determine a série em potências de $x$ para $y'' - xy' - y = 0$.</div>
+                <div class="info-box metodo">
+                    <h4>Introdução Teórica: Solução de EDOs por Séries</h4>
+                    <p><strong>O Problema:</strong> Muitas Equações Diferenciais Ordinárias (EDOs) não possuem soluções analíticas expressáveis por funções elementares. Recorremos então às séries de potências ao redor de um ponto ordinário $x_0$ (onde as funções multiplicadoras de $y''$ não zeram).</p>
+                    <p><strong>Método de Resolução:</strong> Supomos uma solução da forma $y(x) = \sum c_n x^n$. Derivamos essa série termo a termo e substituímos na EDO. O objetivo fundamental é igualar as potências de $x$ (fazendo o <em>shift</em> de índices nas somatórias) para extrair uma <strong>Relação de Recorrência</strong>. Essa relação nos permite encontrar todos os coeficientes $c_n$ em função de constantes arbitrarias ($c_0, c_1$).</p>
+                </div>
                 <div class="solution-section">
                     <div class="step"><div class="step-badge"></div><div class="step-title">Passo 1: Propor a solução em série</div><div class="step-content">Assumimos $y(x) = \sum_{n=0}^{\infty} c_n x^n$. Derivamos $y' = \sum_{n=1}^{\infty} n c_n x^{n-1}$ e $y'' = \sum_{n=2}^{\infty} n(n-1)c_n x^{n-2}$.</div></div>
                     <div class="step"><div class="step-badge"></div><div class="step-title">Passo 2: Substituir na EDO</div><div class="step-content">$\sum_{n=2}^{\infty} n(n-1)c_n x^{n-2} - x\sum_{n=1}^{\infty} n c_n x^{n-1} - \sum_{n=0}^{\infty} c_n x^n = 0$.</div></div>
@@ -347,6 +377,11 @@
             <div class="exercise-card">
                 <div class="exercise-header"><span class="exercise-tag">P3 e Extra</span><span class="exercise-title">Singularidades Regulares</span></div>
                 <div class="exercise-statement">Resolva por Frobenius $9x^2 y'' + 9x^2 y' + 2y = 0$.</div>
+                <div class="info-box metodo">
+                    <h4>Introdução Teórica: O Método de Frobenius</h4>
+                    <p><strong>Contexto:</strong> Quando tentamos expandir a solução de uma EDO em torno de um ponto onde a equação "quebra" (Ponto Singular), o método de séries comum falha. Se os limites envolvendo o ponto singular existirem e forem finitos (Singularidade Regular), o Método de Frobenius entra em ação.</p>
+                    <p><strong>Teorema:</strong> A solução assume a forma modificada $y(x) = \sum c_n x^{n+r}$. O principal objetivo inicial é resolver a <strong>Equação Indicial</strong> para descobrir os valores de $r$ (as raízes indiciais). Dependendo da diferença entre as raízes (se é inteira ou não), o formato final da segunda solução linearmente independente se altera. Após obter os valores de $r$, calculamos as relações de recorrência normalmente.</p>
+                </div>
                 <div class="solution-section">
                     <div class="step"><div class="step-badge"></div><div class="step-title">Passo 1: Verificação de Ponto Singular Regular</div><div class="step-content">Em $x=0$, $P(x)=9x^2=0$. O ponto é singular. Calculando os limites, $p_0 = 0$ e $q_0 = 2/9$, finitos. Ponto regular.</div></div>
                     <div class="step"><div class="step-badge"></div><div class="step-title">Passo 2: Equação Indicial</div><div class="step-content">A equação indicial é $r(r-1) + p_0 r + q_0 = 0 \Rightarrow r(r-1) + 2/9 = 0 \Rightarrow r^2 - r + 2/9 = 0$.</div></div>
